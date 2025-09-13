@@ -52,6 +52,65 @@ function haversineDistance(lat1, lon1, lat2, lon2) {
     return Math.round(R * c);
 }
 
+// Travel statistics calculation functions
+function calculateTravelStats(teamName) {
+    const teamMatches = matchData.find(m => m.home_team === teamName);
+    if (!teamMatches) {
+        return {
+            total_travel: 0,
+            total_guest_travel: 0,
+            travel_difference: 0,
+            shortest_trip: { distance: 0, opponent: '' },
+            longest_trip: { distance: 0, opponent: '' }
+        };
+    }
+
+    // Calculate team's total travel distances
+    const awayDistances = teamMatches.away_matches.map(m => m.distance);
+    const homeDistances = teamMatches.home_matches.map(m => m.distance);
+    const allDistances = [...awayDistances, ...homeDistances];
+    const total_travel = allDistances.reduce((sum, dist) => sum + dist, 0);
+
+    // Calculate guest travel (when other teams come to this team)
+    let total_guest_travel = 0;
+    matchData.forEach(otherTeamMatches => {
+        const guestMatch = otherTeamMatches.away_matches.find(m => m.team === teamName);
+        if (guestMatch) {
+            total_guest_travel += guestMatch.distance;
+        }
+    });
+
+    const travel_difference = total_travel - total_guest_travel;
+
+    // Find shortest and longest trips
+    const allMatches = [...teamMatches.away_matches, ...teamMatches.home_matches];
+    const validMatches = allMatches.filter(m => m.distance > 0);
+
+    let shortest_trip = { distance: Infinity, opponent: '' };
+    let longest_trip = { distance: 0, opponent: '' };
+
+    validMatches.forEach(match => {
+        if (match.distance < shortest_trip.distance) {
+            shortest_trip = { distance: match.distance, opponent: match.team };
+        }
+        if (match.distance > longest_trip.distance) {
+            longest_trip = { distance: match.distance, opponent: match.team };
+        }
+    });
+
+    return {
+        total_travel,
+        total_guest_travel,
+        travel_difference,
+        shortest_trip: shortest_trip.distance === Infinity ? { distance: 0, opponent: '' } : shortest_trip,
+        longest_trip
+    };
+}
+
+function getTeamTravelStats(teamName) {
+    return calculateTravelStats(teamName);
+}
+
 function getPotColor(pot) {
     const colors = {
         1: '#dc2626', // red
@@ -67,6 +126,7 @@ function getStadiumByTeam(teamName) {
 }
 
 function createPopupContent(stadium) {
+    const stats = getTeamTravelStats(stadium.team);
     return `
         <div class="popup-content">
             <h4>${stadium.team}</h4>
@@ -75,13 +135,13 @@ function createPopupContent(stadium) {
                 <p><strong>City:</strong> ${stadium.city}, ${stadium.country}</p>
                 <p><strong>Pot:</strong> ${stadium.pot}</p>
                 <div class="travel-distance">
-                    <strong>Total Travel:</strong> ${stadium.total_travel.toLocaleString()} km
+                    <strong>Total Travel:</strong> ${stats.total_travel.toLocaleString()} km
                 </div>
                 <div class="travel-distance">
-                    <strong>Shortest Trip:</strong> ${stadium.shortest_trip.distance} km to ${stadium.shortest_trip.opponent}
+                    <strong>Shortest Trip:</strong> ${stats.shortest_trip.distance} km to ${stats.shortest_trip.opponent}
                 </div>
                 <div class="travel-distance">
-                    <strong>Longest Trip:</strong> ${stadium.longest_trip.distance} km to ${stadium.longest_trip.opponent}
+                    <strong>Longest Trip:</strong> ${stats.longest_trip.distance} km to ${stats.longest_trip.opponent}
                 </div>
             </div>
         </div>
@@ -90,8 +150,9 @@ function createPopupContent(stadium) {
 
 function getMarkerSize(totalTravel) {
     // Scale marker size based on total travel (min: 8, max: 20)
-    const minTravel = Math.min(...stadiumData.map(s => s.total_travel));
-    const maxTravel = Math.max(...stadiumData.map(s => s.total_travel));
+    const allTravelDistances = stadiumData.map(s => getTeamTravelStats(s.team).total_travel);
+    const minTravel = Math.min(...allTravelDistances);
+    const maxTravel = Math.max(...allTravelDistances);
     const normalizedSize = (totalTravel - minTravel) / (maxTravel - minTravel);
     return 8 + (normalizedSize * 12);
 }
@@ -236,7 +297,8 @@ function loadInteractiveMap() {
     interactiveMarkers.clear();
     
     stadiumData.forEach(stadium => {
-        const markerSize = getMarkerSize(stadium.total_travel);
+        const stats = getTeamTravelStats(stadium.team);
+        const markerSize = getMarkerSize(stats.total_travel);
         
         const marker = L.circleMarker([stadium.latitude, stadium.longitude], {
             radius: markerSize,
@@ -357,10 +419,11 @@ function loadTable() {
     
     tableData.forEach(stadium => {
         const row = document.createElement('tr');
-        
-        const travelDiffClass = stadium.travel_difference > 0 ? 'travel-positive' : 
-                              stadium.travel_difference < 0 ? 'travel-negative' : 'travel-neutral';
-        
+        const stats = getTeamTravelStats(stadium.team);
+
+        const travelDiffClass = stats.travel_difference > 0 ? 'travel-positive' :
+                              stats.travel_difference < 0 ? 'travel-negative' : 'travel-neutral';
+
         row.innerHTML = `
             <td>
                 <span class="pot-indicator pot-${stadium.pot}"></span>
@@ -369,13 +432,13 @@ function loadTable() {
             <td>${stadium.city}</td>
             <td>${stadium.country}</td>
             <td>${stadium.pot}</td>
-            <td>${stadium.total_travel.toLocaleString()}</td>
-            <td>${stadium.total_guest_travel.toLocaleString()}</td>
+            <td>${stats.total_travel.toLocaleString()}</td>
+            <td>${stats.total_guest_travel.toLocaleString()}</td>
             <td class="${travelDiffClass}">
-                ${stadium.travel_difference > 0 ? '+' : ''}${stadium.travel_difference.toLocaleString()}
+                ${stats.travel_difference > 0 ? '+' : ''}${stats.travel_difference.toLocaleString()}
             </td>
-            <td>${stadium.shortest_trip.distance} km vs ${stadium.shortest_trip.opponent}</td>
-            <td>${stadium.longest_trip.distance} km vs ${stadium.longest_trip.opponent}</td>
+            <td>${stats.shortest_trip.distance} km vs ${stats.shortest_trip.opponent}</td>
+            <td>${stats.longest_trip.distance} km vs ${stats.longest_trip.opponent}</td>
         `;
         
         tbody.appendChild(row);
@@ -412,7 +475,7 @@ function sortTable(column) {
     // Sort data
     tableData.sort((a, b) => {
         let aVal, bVal;
-        
+
         switch(column) {
             case 'team':
             case 'city':
@@ -421,19 +484,28 @@ function sortTable(column) {
                 bVal = b[column].toLowerCase();
                 break;
             case 'pot':
-            case 'total_travel':
-            case 'total_guest_travel':
-            case 'travel_difference':
                 aVal = a[column];
                 bVal = b[column];
                 break;
+            case 'total_travel':
+            case 'total_guest_travel':
+            case 'travel_difference':
+                const aStats = getTeamTravelStats(a.team);
+                const bStats = getTeamTravelStats(b.team);
+                aVal = aStats[column];
+                bVal = bStats[column];
+                break;
             case 'shortest_trip':
-                aVal = a.shortest_trip.distance;
-                bVal = b.shortest_trip.distance;
+                const aStatsShort = getTeamTravelStats(a.team);
+                const bStatsShort = getTeamTravelStats(b.team);
+                aVal = aStatsShort.shortest_trip.distance;
+                bVal = bStatsShort.shortest_trip.distance;
                 break;
             case 'longest_trip':
-                aVal = a.longest_trip.distance;
-                bVal = b.longest_trip.distance;
+                const aStatsLong = getTeamTravelStats(a.team);
+                const bStatsLong = getTeamTravelStats(b.team);
+                aVal = aStatsLong.longest_trip.distance;
+                bVal = bStatsLong.longest_trip.distance;
                 break;
             default:
                 return 0;
@@ -464,19 +536,22 @@ function exportToCSV() {
     
     const csvContent = [
         headers.join(','),
-        ...tableData.map(stadium => [
-            `"${stadium.team}"`,
-            `"${stadium.city}"`,
-            `"${stadium.country}"`,
-            stadium.pot,
-            stadium.total_travel,
-            stadium.total_guest_travel,
-            stadium.travel_difference,
-            stadium.shortest_trip.distance,
-            `"${stadium.shortest_trip.opponent}"`,
-            stadium.longest_trip.distance,
-            `"${stadium.longest_trip.opponent}"`
-        ].join(','))
+        ...tableData.map(stadium => {
+            const stats = getTeamTravelStats(stadium.team);
+            return [
+                `"${stadium.team}"`,
+                `"${stadium.city}"`,
+                `"${stadium.country}"`,
+                stadium.pot,
+                stats.total_travel,
+                stats.total_guest_travel,
+                stats.travel_difference,
+                stats.shortest_trip.distance,
+                `"${stats.shortest_trip.opponent}"`,
+                stats.longest_trip.distance,
+                `"${stats.longest_trip.opponent}"`
+            ];
+        }).map(row => row.join(','))
     ].join('\n');
     
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

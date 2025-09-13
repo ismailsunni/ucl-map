@@ -6,18 +6,7 @@
     "country": "Kazakhstan",
     "latitude": 43.2381,
     "longitude": 76.8512,
-    "pot": 4,
-    "total_travel": 42548,
-    "total_guest_travel": 20166,
-    "travel_difference": 22382,
-    "shortest_trip": {
-      "distance": 3910,
-      "opponent": "Pafos"
-    },
-    "longest_trip": {
-      "distance": 6902,
-      "opponent": "Sporting CP"
-    }
+    "pot": 4
   },
   {
     "team": "Qarabağ",
@@ -26,18 +15,7 @@
     "country": "Azerbaijan",
     "latitude": 40.4297,
     "longitude": 49.9186,
-    "pot": 4,
-    "total_travel": 30594,
-    "total_guest_travel": 14155,
-    "travel_difference": 16439,
-    "shortest_trip": {
-      "distance": 2994,
-      "opponent": "Napoli"
-    },
-    "longest_trip": {
-      "distance": 4971,
-      "opponent": "Benfica"
-    }
+    "pot": 4
   },
   {
     "team": "Olympiacos",
@@ -46,18 +24,7 @@
     "country": "Greece",
     "latitude": 37.9474,
     "longitude": 23.6644,
-    "pot": 3,
-    "total_travel": 18128,
-    "total_guest_travel": 7251,
-    "travel_difference": 10877,
-    "shortest_trip": {
-      "distance": 863,
-      "opponent": "Pafos"
-    },
-    "longest_trip": {
-      "distance": 4453,
-      "opponent": "Kairat"
-    }
+    "pot": 3
   },
   {
     "team": "Real Madrid",
@@ -66,18 +33,7 @@
     "country": "Spain",
     "latitude": 40.453053,
     "longitude": -3.688344,
-    "pot": 1,
-    "total_travel": 15032,
-    "total_guest_travel": 4310,
-    "travel_difference": 10722,
-    "shortest_trip": {
-      "distance": 507,
-      "opponent": "Benfica"
-    },
-    "longest_trip": {
-      "distance": 6407,
-      "opponent": "Kairat"
-    }
+    "pot": 1
   },
   {
     "team": "Pafos",
@@ -86,18 +42,7 @@
     "country": "Cyprus",
     "latitude": 34.6844,
     "longitude": 32.4131,
-    "pot": 4,
-    "total_travel": 20178,
-    "total_guest_travel": 9811,
-    "travel_difference": 10367,
-    "shortest_trip": {
-      "distance": 863,
-      "opponent": "Olympiacos"
-    },
-    "longest_trip": {
-      "distance": 3910,
-      "opponent": "Kairat"
-    }
+    "pot": 4
   },
   {
     "team": "Bodø/Glimt",
@@ -106,18 +51,7 @@
     "country": "Norway",
     "latitude": 67.2903,
     "longitude": 14.4051,
-    "pot": 3,
-    "total_travel": 18779,
-    "total_guest_travel": 8839,
-    "travel_difference": 9940,
-    "shortest_trip": {
-      "distance": 1773,
-      "opponent": "Manchester City"
-    },
-    "longest_trip": {
-      "distance": 3183,
-      "opponent": "Atlético Madrid"
-    }
+    "pot": 3
   },
   {
     "team": "Club Brugge",
@@ -126,18 +60,7 @@
     "country": "Belgium",
     "latitude": 51.1969,
     "longitude": 3.1816,
-    "pot": 2,
-    "total_travel": 11661,
-    "total_guest_travel": 3114,
-    "travel_difference": 8547,
-    "shortest_trip": {
-      "distance": 232,
-      "opponent": "Arsenal"
-    },
-    "longest_trip": {
-      "distance": 5396,
-      "opponent": "Kairat"
-    }
+    "pot": 2
   },
   {
     "team": "Galatasaray",
@@ -146,18 +69,7 @@
     "country": "Turkey",
     "latitude": 41.1039,
     "longitude": 28.9922,
-    "pot": 4,
-    "total_travel": 19236,
-    "total_guest_travel": 10689,
-    "travel_difference": 8547,
-    "shortest_trip": {
-      "distance": 1790,
-      "opponent": "Monaco"
-    },
-    "longest_trip": {
-      "distance": 3044,
-      "opponent": "Bodø/Glimt"
-    }
+    "pot": 4
   },
   {
     "team": "Copenhagen",
@@ -166,18 +78,7 @@
     "country": "Denmark",
     "latitude": 55.702724,
     "longitude": 12.571566,
-    "pot": 4,
-    "total_travel": 15425,
-    "total_guest_travel": 7532,
-    "travel_difference": 7893,
-    "shortest_trip": {
-      "distance": 577,
-      "opponent": "Borussia Dortmund"
-    },
-    "longest_trip": {
-      "distance": 4661,
-      "opponent": "Kairat"
-    }
+    "pot": 4
   },
   {
     "team": "Chelsea",
@@ -186,18 +87,7 @@
     "country": "England",
     "latitude": 51.4816,
     "longitude": -0.1911,
-    "pot": 1,
-    "total_travel": 13761,
-    "total_guest_travel": 6280,
-    "travel_difference": 7481,
-    "shortest_trip": {
-      "distance": 364,
-      "opponent": "Ajax"
-    },
-    "longest_trip": {
-      "distance": 3977,
-      "opponent": "Qarabağ"
-    }
+    "pot": 1
   },
   {
     "team": "Sporting CP",
@@ -206,18 +96,7 @@
     "country": "Portugal",
     "latitude": 38.7613,
     "longitude": -9.1608,
-    "pot": 3,
-    "total_travel": 17598,
-    "total_guest_travel": 11349,
-    "travel_difference": 6249,
-    "shortest_trip": {
-      "distance": 722,
-      "opponent": "Athletic Bilbao"
-    },
-    "longest_trip": {
-      "distance": 6902,
-      "opponent": "Kairat"
-    }
+    "pot": 3
   },
   {
     "team": "Monaco",
@@ -226,18 +105,7 @@
     "country": "Monaco",
     "latitude": 43.7278,
     "longitude": 7.4147,
-    "pot": 4,
-    "total_travel": 11167,
-    "total_guest_travel": 4275,
-    "travel_difference": 6892,
-    "shortest_trip": {
-      "distance": 155,
-      "opponent": "Juventus"
-    },
-    "longest_trip": {
-      "distance": 2653,
-      "opponent": "Bodø/Glimt"
-    }
+    "pot": 4
   },
   {
     "team": "Athletic Bilbao",
@@ -246,18 +114,7 @@
     "country": "Spain",
     "latitude": 43.264183,
     "longitude": -2.949421,
-    "pot": 4,
-    "total_travel": 11792,
-    "total_guest_travel": 6723,
-    "travel_difference": 5069,
-    "shortest_trip": {
-      "distance": 722,
-      "opponent": "Sporting CP"
-    },
-    "longest_trip": {
-      "distance": 4317,
-      "opponent": "Qarabağ"
-    }
+    "pot": 4
   },
   {
     "team": "Ajax",
@@ -266,18 +123,7 @@
     "country": "Netherlands",
     "latitude": 52.3144,
     "longitude": 4.9419,
-    "pot": 3,
-    "total_travel": 13462,
-    "total_guest_travel": 7037,
-    "travel_difference": 6425,
-    "shortest_trip": {
-      "distance": 364,
-      "opponent": "Chelsea"
-    },
-    "longest_trip": {
-      "distance": 3626,
-      "opponent": "Qarabağ"
-    }
+    "pot": 3
   },
   {
     "team": "Slavia Prague",
@@ -286,18 +132,7 @@
     "country": "Czech Republic",
     "latitude": 50.0669,
     "longitude": 14.472,
-    "pot": 3,
-    "total_travel": 10361,
-    "total_guest_travel": 5832,
-    "travel_difference": 4529,
-    "shortest_trip": {
-      "distance": 602,
-      "opponent": "Atalanta"
-    },
-    "longest_trip": {
-      "distance": 2246,
-      "opponent": "Pafos"
-    }
+    "pot": 3
   },
   {
     "team": "Liverpool",
@@ -306,18 +141,7 @@
     "country": "England",
     "latitude": 53.430759,
     "longitude": -2.961425,
-    "pot": 1,
-    "total_travel": 13806,
-    "total_guest_travel": 7659,
-    "travel_difference": 6147,
-    "shortest_trip": {
-      "distance": 612,
-      "opponent": "PSV Eindhoven"
-    },
-    "longest_trip": {
-      "distance": 4157,
-      "opponent": "Qarabağ"
-    }
+    "pot": 1
   },
   {
     "team": "Juventus",
@@ -326,18 +150,7 @@
     "country": "Italy",
     "latitude": 45.1097,
     "longitude": 7.6411,
-    "pot": 2,
-    "total_travel": 10784,
-    "total_guest_travel": 6218,
-    "travel_difference": 4566,
-    "shortest_trip": {
-      "distance": 155,
-      "opponent": "Monaco"
-    },
-    "longest_trip": {
-      "distance": 2498,
-      "opponent": "Bodø/Glimt"
-    }
+    "pot": 2
   },
   {
     "team": "Eintracht Frankfurt",
@@ -346,18 +159,7 @@
     "country": "Germany",
     "latitude": 50.068572,
     "longitude": 8.645458,
-    "pot": 2,
-    "total_travel": 10862,
-    "total_guest_travel": 3869,
-    "travel_difference": 6993,
-    "shortest_trip": {
-      "distance": 491,
-      "opponent": "Atalanta"
-    },
-    "longest_trip": {
-      "distance": 3355,
-      "opponent": "Qarabağ"
-    }
+    "pot": 2
   },
   {
     "team": "Manchester City",
@@ -366,18 +168,7 @@
     "country": "England",
     "latitude": 53.4831,
     "longitude": -2.2004,
-    "pot": 1,
-    "total_travel": 11963,
-    "total_guest_travel": 5931,
-    "travel_difference": 6032,
-    "shortest_trip": {
-      "distance": 682,
-      "opponent": "Bayer Leverkusen"
-    },
-    "longest_trip": {
-      "distance": 2694,
-      "opponent": "Galatasaray"
-    }
+    "pot": 1
   },
   {
     "team": "Napoli",
@@ -386,18 +177,7 @@
     "country": "Italy",
     "latitude": 40.8279,
     "longitude": 14.1931,
-    "pot": 3,
-    "total_travel": 14611,
-    "total_guest_travel": 7726,
-    "travel_difference": 6885,
-    "shortest_trip": {
-      "distance": 1114,
-      "opponent": "Eintracht Frankfurt"
-    },
-    "longest_trip": {
-      "distance": 2994,
-      "opponent": "Qarabağ"
-    }
+    "pot": 3
   },
   {
     "team": "Barcelona",
@@ -406,18 +186,7 @@
     "country": "Spain",
     "latitude": 41.364746,
     "longitude": 2.155569,
-    "pot": 1,
-    "total_travel": 10692,
-    "total_guest_travel": 5561,
-    "travel_difference": 5131,
-    "shortest_trip": {
-      "distance": 831,
-      "opponent": "Paris Saint-Germain"
-    },
-    "longest_trip": {
-      "distance": 1875,
-      "opponent": "Olympiacos"
-    }
+    "pot": 1
   },
   {
     "team": "Bayer Leverkusen",
@@ -426,18 +195,7 @@
     "country": "Germany",
     "latitude": 51.038256,
     "longitude": 7.002206,
-    "pot": 2,
-    "total_travel": 7744,
-    "total_guest_travel": 2608,
-    "travel_difference": 5136,
-    "shortest_trip": {
-      "distance": 116,
-      "opponent": "PSV Eindhoven"
-    },
-    "longest_trip": {
-      "distance": 1957,
-      "opponent": "Olympiacos"
-    }
+    "pot": 2
   },
   {
     "team": "Bayern Munich",
@@ -446,18 +204,7 @@
     "country": "Germany",
     "latitude": 48.218775,
     "longitude": 11.624753,
-    "pot": 1,
-    "total_travel": 8640,
-    "total_guest_travel": 4180,
-    "travel_difference": 4460,
-    "shortest_trip": {
-      "distance": 568,
-      "opponent": "PSV Eindhoven"
-    },
-    "longest_trip": {
-      "distance": 2282,
-      "opponent": "Pafos"
-    }
+    "pot": 1
   },
   {
     "team": "Benfica",
@@ -466,18 +213,7 @@
     "country": "Portugal",
     "latitude": 38.7526,
     "longitude": -9.1847,
-    "pot": 2,
-    "total_travel": 16231,
-    "total_guest_travel": 9344,
-    "travel_difference": 6887,
-    "shortest_trip": {
-      "distance": 507,
-      "opponent": "Real Madrid"
-    },
-    "longest_trip": {
-      "distance": 4971,
-      "opponent": "Qarabağ"
-    }
+    "pot": 2
   },
   {
     "team": "Atlético Madrid",
@@ -486,18 +222,7 @@
     "country": "Spain",
     "latitude": 40.4362,
     "longitude": -3.5995,
-    "pot": 2,
-    "total_travel": 13950,
-    "total_guest_travel": 7101,
-    "travel_difference": 6849,
-    "shortest_trip": {
-      "distance": 1176,
-      "opponent": "Inter Milan"
-    },
-    "longest_trip": {
-      "distance": 3183,
-      "opponent": "Bodø/Glimt"
-    }
+    "pot": 2
   },
   {
     "team": "Villarreal",
@@ -506,18 +231,7 @@
     "country": "Spain",
     "latitude": 39.944167,
     "longitude": -0.103611,
-    "pot": 2,
-    "total_travel": 12758,
-    "total_guest_travel": 5782,
-    "travel_difference": 6976,
-    "shortest_trip": {
-      "distance": 855,
-      "opponent": "Juventus"
-    },
-    "longest_trip": {
-      "distance": 2918,
-      "opponent": "Pafos"
-    }
+    "pot": 2
   },
   {
     "team": "Union Saint-Gilloise",
@@ -526,18 +240,7 @@
     "country": "Belgium",
     "latitude": 50.8205,
     "longitude": 4.352,
-    "pot": 4,
-    "total_travel": 7022,
-    "total_guest_travel": 2836,
-    "travel_difference": 4186,
-    "shortest_trip": {
-      "distance": 104,
-      "opponent": "PSV Eindhoven"
-    },
-    "longest_trip": {
-      "distance": 2175,
-      "opponent": "Galatasaray"
-    }
+    "pot": 4
   },
   {
     "team": "Tottenham Hotspur",
@@ -546,18 +249,7 @@
     "country": "England",
     "latitude": 51.604252,
     "longitude": -0.067007,
-    "pot": 3,
-    "total_travel": 7734,
-    "total_guest_travel": 3797,
-    "travel_difference": 3937,
-    "shortest_trip": {
-      "distance": 349,
-      "opponent": "Paris Saint-Germain"
-    },
-    "longest_trip": {
-      "distance": 1915,
-      "opponent": "Bodø/Glimt"
-    }
+    "pot": 3
   },
   {
     "team": "Marseille",
@@ -566,18 +258,7 @@
     "country": "France",
     "latitude": 43.2697,
     "longitude": 5.3958,
-    "pot": 3,
-    "total_travel": 7996,
-    "total_guest_travel": 4124,
-    "travel_difference": 3872,
-    "shortest_trip": {
-      "distance": 435,
-      "opponent": "Atalanta"
-    },
-    "longest_trip": {
-      "distance": 1397,
-      "opponent": "Newcastle United"
-    }
+    "pot": 3
   },
   {
     "team": "Newcastle United",
@@ -586,18 +267,7 @@
     "country": "England",
     "latitude": 54.9756,
     "longitude": -1.6219,
-    "pot": 4,
-    "total_travel": 8813,
-    "total_guest_travel": 5350,
-    "travel_difference": 3463,
-    "shortest_trip": {
-      "distance": 611,
-      "opponent": "Union Saint-Gilloise"
-    },
-    "longest_trip": {
-      "distance": 1891,
-      "opponent": "Benfica"
-    }
+    "pot": 4
   },
   {
     "team": "Paris Saint-Germain",
@@ -606,18 +276,7 @@
     "country": "France",
     "latitude": 48.8414,
     "longitude": 2.253,
-    "pot": 1,
-    "total_travel": 5864,
-    "total_guest_travel": 2433,
-    "travel_difference": 3431,
-    "shortest_trip": {
-      "distance": 349,
-      "opponent": "Tottenham Hotspur"
-    },
-    "longest_trip": {
-      "distance": 1444,
-      "opponent": "Sporting CP"
-    }
+    "pot": 1
   },
   {
     "team": "PSV Eindhoven",
@@ -626,18 +285,7 @@
     "country": "Netherlands",
     "latitude": 51.4416,
     "longitude": 5.4697,
-    "pot": 3,
-    "total_travel": 6845,
-    "total_guest_travel": 3436,
-    "travel_difference": 3409,
-    "shortest_trip": {
-      "distance": 104,
-      "opponent": "Union Saint-Gilloise"
-    },
-    "longest_trip": {
-      "distance": 2067,
-      "opponent": "Olympiacos"
-    }
+    "pot": 3
   },
   {
     "team": "Inter Milan",
@@ -646,18 +294,7 @@
     "country": "Italy",
     "latitude": 45.4781,
     "longitude": 9.124,
-    "pot": 1,
-    "total_travel": 11437,
-    "total_guest_travel": 8071,
-    "travel_difference": 3366,
-    "shortest_trip": {
-      "distance": 648,
-      "opponent": "Slavia Prague"
-    },
-    "longest_trip": {
-      "distance": 5226,
-      "opponent": "Kairat"
-    }
+    "pot": 1
   },
   {
     "team": "Arsenal",
@@ -666,18 +303,7 @@
     "country": "England",
     "latitude": 51.5549,
     "longitude": -0.1084,
-    "pot": 2,
-    "total_travel": 13338,
-    "total_guest_travel": 10167,
-    "travel_difference": 3171,
-    "shortest_trip": {
-      "distance": 232,
-      "opponent": "Club Brugge"
-    },
-    "longest_trip": {
-      "distance": 5593,
-      "opponent": "Kairat"
-    }
+    "pot": 2
   },
   {
     "team": "Borussia Dortmund",
@@ -686,18 +312,7 @@
     "country": "Germany",
     "latitude": 51.492569,
     "longitude": 7.451842,
-    "pot": 1,
-    "total_travel": 7586,
-    "total_guest_travel": 5090,
-    "travel_difference": 2496,
-    "shortest_trip": {
-      "distance": 520,
-      "opponent": "Tottenham Hotspur"
-    },
-    "longest_trip": {
-      "distance": 1798,
-      "opponent": "Bodø/Glimt"
-    }
+    "pot": 1
   },
   {
     "team": "Atalanta",
@@ -706,17 +321,6 @@
     "country": "Italy",
     "latitude": 45.7089,
     "longitude": 9.6804,
-    "pot": 2,
-    "total_travel": 5658,
-    "total_guest_travel": 3382,
-    "travel_difference": 2276,
-    "shortest_trip": {
-      "distance": 435,
-      "opponent": "Marseille"
-    },
-    "longest_trip": {
-      "distance": 1037,
-      "opponent": "Athletic Bilbao"
-    }
+    "pot": 2
   }
 ]
