@@ -240,9 +240,9 @@ function drawAllMatches() {
         const homeStadium = getStadiumByTeam(match.home_team);
         if (!homeStadium) return;
 
-        // Draw lines to away teams (this team travels to others)
-        match.away_teams.forEach(awayTeam => {
-            const awayStadium = getStadiumByTeam(awayTeam);
+        // Draw lines for this team's away matches (this team travels to others)
+        match.home_matches.forEach(awayTeamData => {
+            const awayStadium = getStadiumByTeam(awayTeamData.team);
             if (awayStadium) {
                 const line = drawMatchLine(homeStadium, awayStadium, matchesMap, false);
                 if (line) allMatchLines.push(line);
@@ -331,8 +331,8 @@ function showTravelLines(teamName) {
     if (!teamData || !homeStadium) return;
 
     // Draw green lines for home matches (teams coming to this stadium)
-    teamData.home_hosts.forEach(visitingTeam => {
-        const visitingStadium = getStadiumByTeam(visitingTeam);
+    teamData.away_matches.forEach(visitingTeamData => {
+        const visitingStadium = getStadiumByTeam(visitingTeamData.team);
         if (visitingStadium) {
             const lineData = drawTravelLine(visitingStadium, homeStadium, '#16a34a', 'home');
             if (lineData) hoverLines.push(lineData);
@@ -340,8 +340,8 @@ function showTravelLines(teamName) {
     });
 
     // Draw red lines for away matches (this team traveling)
-    teamData.away_teams.forEach(hostTeam => {
-        const hostStadium = getStadiumByTeam(hostTeam);
+    teamData.home_matches.forEach(hostTeamData => {
+        const hostStadium = getStadiumByTeam(hostTeamData.team);
         if (hostStadium) {
             const lineData = drawTravelLine(homeStadium, hostStadium, '#dc2626', 'away');
             if (lineData) hoverLines.push(lineData);
