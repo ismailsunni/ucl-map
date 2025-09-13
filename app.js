@@ -65,26 +65,18 @@ function calculateTravelStats(teamName) {
         };
     }
 
-    // Calculate team's total travel distances
-    const awayDistances = teamMatches.away_matches.map(m => m.distance);
-    const homeDistances = teamMatches.home_matches.map(m => m.distance);
-    const allDistances = [...awayDistances, ...homeDistances];
-    const total_travel = allDistances.reduce((sum, dist) => sum + dist, 0);
+    // Calculate team's own travel distances (when they travel away from home)
+    const ownTravelDistances = teamMatches.home_matches.map(m => m.distance);
+    const total_travel = ownTravelDistances.reduce((sum, dist) => sum + dist, 0);
 
-    // Calculate guest travel (when other teams come to this team)
-    let total_guest_travel = 0;
-    matchData.forEach(otherTeamMatches => {
-        const guestMatch = otherTeamMatches.away_matches.find(m => m.team === teamName);
-        if (guestMatch) {
-            total_guest_travel += guestMatch.distance;
-        }
-    });
+    // Calculate guest travel (when other teams come to this team's stadium)
+    const guestTravelDistances = teamMatches.away_matches.map(m => m.distance);
+    const total_guest_travel = guestTravelDistances.reduce((sum, dist) => sum + dist, 0);
 
     const travel_difference = total_travel - total_guest_travel;
 
-    // Find shortest and longest trips
-    const allMatches = [...teamMatches.away_matches, ...teamMatches.home_matches];
-    const validMatches = allMatches.filter(m => m.distance > 0);
+    // Find shortest and longest trips from the team's own travels only
+    const validMatches = teamMatches.home_matches.filter(m => m.distance > 0);
 
     let shortest_trip = { distance: Infinity, opponent: '' };
     let longest_trip = { distance: 0, opponent: '' };
