@@ -1,81 +1,29 @@
-// Stadium and match data from corrected JSON
-const stadiumData = [
-  {"team": "Kairat", "stadium": "Almaty Ortalyk Stadion", "city": "Almaty", "country": "Kazakhstan", "latitude": 43.2381, "longitude": 76.8512, "pot": 4, "total_travel": 22383, "total_guest_travel": 20166, "travel_difference": 2217, "shortest_trip": {"distance": 4661, "opponent": "Copenhagen"}, "longest_trip": {"distance": 6902, "opponent": "Sporting CP"}},
-  {"team": "Qarabağ", "stadium": "Baku Olympic Stadium", "city": "Baku", "country": "Azerbaijan", "latitude": 40.4297, "longitude": 49.9186, "pot": 4, "total_travel": 16439, "total_guest_travel": 14154, "travel_difference": 2285, "shortest_trip": {"distance": 2994, "opponent": "Napoli"}, "longest_trip": {"distance": 4971, "opponent": "Benfica"}},
-  {"team": "Olympiacos", "stadium": "Stadio Georgios Karaiskakis", "city": "Piraeus", "country": "Greece", "latitude": 37.9474, "longitude": 23.6644, "pot": 3, "total_travel": 10878, "total_guest_travel": 7251, "travel_difference": 3627, "shortest_trip": {"distance": 1875, "opponent": "Barcelona"}, "longest_trip": {"distance": 4453, "opponent": "Kairat"}},
-  {"team": "Real Madrid", "stadium": "Santiago Bernabéu", "city": "Madrid", "country": "Spain", "latitude": 40.453053, "longitude": -3.688344, "pot": 1, "total_travel": 10722, "total_guest_travel": 5399, "travel_difference": 5323, "shortest_trip": {"distance": 507, "opponent": "Benfica"}, "longest_trip": {"distance": 6407, "opponent": "Kairat"}},
-  {"team": "Pafos", "stadium": "Limassol Stadium", "city": "Paphos", "country": "Cyprus", "latitude": 34.6844, "longitude": 32.4131, "pot": 4, "total_travel": 10367, "total_guest_travel": 9810, "travel_difference": 557, "shortest_trip": {"distance": 863, "opponent": "Olympiacos"}, "longest_trip": {"distance": 4453, "opponent": "Kairat"}},
-  {"team": "Bodø/Glimt", "stadium": "Aspmyra Stadion", "city": "Bodø", "country": "Norway", "latitude": 67.2903, "longitude": 14.4051, "pot": 3, "total_travel": 9940, "total_guest_travel": 8839, "travel_difference": 1101, "shortest_trip": {"distance": 1798, "opponent": "Borussia Dortmund"}, "longest_trip": {"distance": 3519, "opponent": "Galatasaray"}},
-  {"team": "Club Brugge", "stadium": "Jan Breydel Stadium", "city": "Bruges", "country": "Belgium", "latitude": 51.1969, "longitude": 3.1816, "pot": 2, "total_travel": 8547, "total_guest_travel": 3114, "travel_difference": 5433, "shortest_trip": {"distance": 691, "opponent": "Bayern Munich"}, "longest_trip": {"distance": 5396, "opponent": "Kairat"}},
-  {"team": "Galatasaray", "stadium": "Ali Sami Yen Spor Kompleksi", "city": "Istanbul", "country": "Turkey", "latitude": 41.1039, "longitude": 28.9922, "pot": 4, "total_travel": 8546, "total_guest_travel": 10689, "travel_difference": -2143, "shortest_trip": {"distance": 1790, "opponent": "Monaco"}, "longest_trip": {"distance": 3519, "opponent": "Bodø/Glimt"}},
-  {"team": "Copenhagen", "stadium": "Parken Stadium", "city": "Copenhagen", "country": "Denmark", "latitude": 55.702724, "longitude": 12.571566, "pot": 4, "total_travel": 7893, "total_guest_travel": 6477, "travel_difference": 1416, "shortest_trip": {"distance": 947, "opponent": "Tottenham Hotspur"}, "longest_trip": {"distance": 4453, "opponent": "Qarabağ"}},
-  {"team": "Chelsea", "stadium": "Stamford Bridge", "city": "London", "country": "England", "latitude": 51.4816, "longitude": -0.1911, "pot": 1, "total_travel": 7481, "total_guest_travel": 6279, "travel_difference": 1202, "shortest_trip": {"distance": 920, "opponent": "Bayern Munich"}, "longest_trip": {"distance": 3519, "opponent": "Qarabağ"}},
-  {"team": "Sporting CP", "stadium": "Estádio José Alvalade", "city": "Lisbon", "country": "Portugal", "latitude": 38.7613, "longitude": -9.1608, "pot": 3, "total_travel": 7430, "total_guest_travel": 11349, "travel_difference": -3919, "shortest_trip": {"distance": 691, "opponent": "Bayern Munich"}, "longest_trip": {"distance": 2994, "opponent": "Napoli"}},
-  {"team": "Monaco", "stadium": "Stade Louis II", "city": "Monaco", "country": "Monaco", "latitude": 43.7278, "longitude": 7.4147, "pot": 4, "total_travel": 7186, "total_guest_travel": 6489, "travel_difference": 697, "shortest_trip": {"distance": 232, "opponent": "Club Brugge"}, "longest_trip": {"distance": 3180, "opponent": "Pafos"}},
-  {"team": "Athletic Bilbao", "stadium": "San Mamés", "city": "Bilbao", "country": "Spain", "latitude": 43.264183, "longitude": -2.949421, "pot": 4, "total_travel": 6818, "total_guest_travel": 5099, "travel_difference": 1719, "shortest_trip": {"distance": 491, "opponent": "Atalanta"}, "longest_trip": {"distance": 4317, "opponent": "Qarabağ"}},
-  {"team": "Ajax", "stadium": "Johan Cruijff ArenA", "city": "Amsterdam", "country": "Netherlands", "latitude": 52.3144, "longitude": 4.9419, "pot": 3, "total_travel": 6881, "total_guest_travel": 7062, "travel_difference": -181, "shortest_trip": {"distance": 364, "opponent": "Chelsea"}, "longest_trip": {"distance": 3270, "opponent": "Qarabağ"}},
-  {"team": "Slavia Prague", "stadium": "Eden Arena", "city": "Prague", "country": "Czech Republic", "latitude": 50.0669, "longitude": 14.472, "pot": 3, "total_travel": 6534, "total_guest_travel": 7062, "travel_difference": -528, "shortest_trip": {"distance": 491, "opponent": "Atalanta"}, "longest_trip": {"distance": 3180, "opponent": "Pafos"}},
-  {"team": "Liverpool", "stadium": "Anfield", "city": "Liverpool", "country": "England", "latitude": 53.430759, "longitude": -2.961425, "pot": 1, "total_travel": 6380, "total_guest_travel": 6893, "travel_difference": -513, "shortest_trip": {"distance": 873, "opponent": "Inter Milan"}, "longest_trip": {"distance": 2473, "opponent": "Galatasaray"}},
-  {"team": "Juventus", "stadium": "Allianz Stadium", "city": "Turin", "country": "Italy", "latitude": 45.1097, "longitude": 7.6411, "pot": 2, "total_travel": 6262, "total_guest_travel": 6841, "travel_difference": -579, "shortest_trip": {"distance": 155, "opponent": "Monaco"}, "longest_trip": {"distance": 2331, "opponent": "Bodø/Glimt"}},
-  {"team": "Eintracht Frankfurt", "stadium": "Deutsche Bank Park", "city": "Frankfurt", "country": "Germany", "latitude": 50.068572, "longitude": 8.645458, "pot": 2, "total_travel": 6265, "total_guest_travel": 3868, "travel_difference": 2397, "shortest_trip": {"distance": 831, "opponent": "Barcelona"}, "longest_trip": {"distance": 3270, "opponent": "Qarabağ"}},
-  {"team": "Manchester City", "stadium": "Etihad Stadium", "city": "Manchester", "country": "England", "latitude": 53.4831, "longitude": -2.2004, "pot": 1, "total_travel": 6032, "total_guest_travel": 6001, "travel_difference": 31, "shortest_trip": {"distance": 1292, "opponent": "Monaco"}, "longest_trip": {"distance": 1773, "opponent": "Bodø/Glimt"}},
-  {"team": "Napoli", "stadium": "Stadio Diego Armando Maradona", "city": "Naples", "country": "Italy", "latitude": 40.8279, "longitude": 14.1931, "pot": 3, "total_travel": 6079, "total_guest_travel": 7727, "travel_difference": -1648, "shortest_trip": {"distance": 516, "opponent": "Benfica"}, "longest_trip": {"distance": 2977, "opponent": "Copenhagen"}},
-  {"team": "Barcelona", "stadium": "Estadi Olímpic Lluís Companys", "city": "Barcelona", "country": "Spain", "latitude": 41.364746, "longitude": 2.155569, "pot": 1, "total_travel": 5945, "total_guest_travel": 5511, "travel_difference": 434, "shortest_trip": {"distance": 232, "opponent": "Club Brugge"}, "longest_trip": {"distance": 2974, "opponent": "Newcastle United"}},
-  {"team": "Bayer Leverkusen", "stadium": "BayArena", "city": "Leverkusen", "country": "Germany", "latitude": 51.038256, "longitude": 7.002206, "pot": 2, "total_travel": 5859, "total_guest_travel": 2608, "travel_difference": 3251, "shortest_trip": {"distance": 516, "opponent": "Benfica"}, "longest_trip": {"distance": 2977, "opponent": "Copenhagen"}},
-  {"team": "Bayern Munich", "stadium": "Allianz Arena", "city": "Munich", "country": "Germany", "latitude": 48.218775, "longitude": 11.624753, "pot": 1, "total_travel": 5782, "total_guest_travel": 4180, "travel_difference": 1602, "shortest_trip": {"distance": 418, "opponent": "Paris Saint-Germain"}, "longest_trip": {"distance": 3764, "opponent": "Pafos"}},
-  {"team": "Benfica", "stadium": "Estádio da Luz", "city": "Lisbon", "country": "Portugal", "latitude": 38.7526, "longitude": -9.1847, "pot": 2, "total_travel": 5780, "total_guest_travel": 9343, "travel_difference": -3563, "shortest_trip": {"distance": 246, "opponent": "Ajax"}, "longest_trip": {"distance": 2974, "opponent": "Newcastle United"}},
-  {"team": "Atlético Madrid", "stadium": "Cívitas Metropolitano", "city": "Madrid", "country": "Spain", "latitude": 40.4362, "longitude": -3.5995, "pot": 2, "total_travel": 5596, "total_guest_travel": 6477, "travel_difference": -881, "shortest_trip": {"distance": 360, "opponent": "PSV Eindhoven"}, "longest_trip": {"distance": 2473, "opponent": "Galatasaray"}},
-  {"team": "Villarreal", "stadium": "Estadio de la Cerámica", "city": "Villarreal", "country": "Spain", "latitude": 39.944167, "longitude": -0.103611, "pot": 2, "total_travel": 5512, "total_guest_travel": 5588, "travel_difference": -76, "shortest_trip": {"distance": 116, "opponent": "Bayer Leverkusen"}, "longest_trip": {"distance": 3180, "opponent": "Pafos"}},
-  {"team": "Union Saint-Gilloise", "stadium": "Stade Joseph Marien", "city": "Brussels", "country": "Belgium", "latitude": 50.8205, "longitude": 4.352, "pot": 4, "total_travel": 4186, "total_guest_travel": 2837, "travel_difference": 1349, "shortest_trip": {"distance": 104, "opponent": "PSV Eindhoven"}, "longest_trip": {"distance": 2473, "opponent": "Galatasaray"}},
-  {"team": "Tottenham Hotspur", "stadium": "Tottenham Hotspur Stadium", "city": "London", "country": "England", "latitude": 51.604252, "longitude": -0.067007, "pot": 3, "total_travel": 3937, "total_guest_travel": 3797, "travel_difference": 140, "shortest_trip": {"distance": 349, "opponent": "Paris Saint-Germain"}, "longest_trip": {"distance": 2892, "opponent": "Bodø/Glimt"}},
-  {"team": "Marseille", "stadium": "Stade Vélodrome", "city": "Marseille", "country": "France", "latitude": 43.2697, "longitude": 5.3958, "pot": 3, "total_travel": 3873, "total_guest_travel": 4123, "travel_difference": -250, "shortest_trip": {"distance": 232, "opponent": "Club Brugge"}, "longest_trip": {"distance": 1609, "opponent": "Union Saint-Gilloise"}},
-  {"team": "Newcastle United", "stadium": "St. James' Park", "city": "Newcastle", "country": "England", "latitude": 54.9756, "longitude": -1.6219, "pot": 4, "total_travel": 3463, "total_guest_travel": 6893, "travel_difference": -3430, "shortest_trip": {"distance": 104, "opponent": "Union Saint-Gilloise"}, "longest_trip": {"distance": 1636, "opponent": "Marseille"}},
-  {"team": "Paris Saint-Germain", "stadium": "Parc des Princes", "city": "Paris", "country": "France", "latitude": 48.8414, "longitude": 2.253, "pot": 1, "total_travel": 3432, "total_guest_travel": 2433, "travel_difference": 999, "shortest_trip": {"distance": 418, "opponent": "Bayer Leverkusen"}, "longest_trip": {"distance": 1444, "opponent": "Sporting CP"}},
-  {"team": "PSV Eindhoven", "stadium": "Philips Stadion", "city": "Eindhoven", "country": "Netherlands", "latitude": 51.4416, "longitude": 5.4697, "pot": 3, "total_travel": 3409, "total_guest_travel": 3436, "travel_difference": -27, "shortest_trip": {"distance": 116, "opponent": "Bayer Leverkusen"}, "longest_trip": {"distance": 1636, "opponent": "Newcastle United"}},
-  {"team": "Inter Milan", "stadium": "San Siro", "city": "Milan", "country": "Italy", "latitude": 45.4781, "longitude": 9.124, "pot": 1, "total_travel": 3366, "total_guest_travel": 8071, "travel_difference": -4705, "shortest_trip": {"distance": 246, "opponent": "Ajax"}, "longest_trip": {"distance": 1636, "opponent": "Union Saint-Gilloise"}},
-  {"team": "Arsenal", "stadium": "Emirates Stadium", "city": "London", "country": "England", "latitude": 51.5549, "longitude": -0.1084, "pot": 2, "total_travel": 3171, "total_guest_travel": 10168, "travel_difference": -6997, "shortest_trip": {"distance": 232, "opponent": "Club Brugge"}, "longest_trip": {"distance": 1806, "opponent": "Athletic Bilbao"}},
-  {"team": "Borussia Dortmund", "stadium": "Signal Iduna Park", "city": "Dortmund", "country": "Germany", "latitude": 51.492569, "longitude": 7.451842, "pot": 1, "total_travel": 2496, "total_guest_travel": 5638, "travel_difference": -3142, "shortest_trip": {"distance": 520, "opponent": "Tottenham Hotspur"}, "longest_trip": {"distance": 710, "opponent": "Juventus"}},
-  {"team": "Atalanta", "stadium": "Gewiss Stadium", "city": "Bergamo", "country": "Italy", "latitude": 45.7089, "longitude": 9.6804, "pot": 2, "total_travel": 2276, "total_guest_travel": 3382, "travel_difference": -1106, "shortest_trip": {"distance": 435, "opponent": "Marseille"}, "longest_trip": {"distance": 1636, "opponent": "Union Saint-Gilloise"}}
-];
+// Global variables for data
+let stadiumData = [];
+let matchData = [];
 
-const matchData = [
-  {"home_team": "Paris Saint-Germain", "away_teams": ["Barcelona", "Bayer Leverkusen", "Sporting CP", "Athletic Bilbao"], "home_hosts": ["Bayern Munich", "Atalanta", "Tottenham Hotspur", "Newcastle United"]},
-  {"home_team": "Real Madrid", "away_teams": ["Liverpool", "Benfica", "Olympiacos", "Kairat"], "home_hosts": ["Manchester City", "Juventus", "Marseille", "Monaco"]},
-  {"home_team": "Manchester City", "away_teams": ["Real Madrid", "Villarreal", "Bodø/Glimt", "Monaco"], "home_hosts": ["Borussia Dortmund", "Bayer Leverkusen", "Napoli", "Galatasaray"]},
-  {"home_team": "Bayern Munich", "away_teams": ["Paris Saint-Germain", "Arsenal", "PSV Eindhoven", "Pafos"], "home_hosts": ["Chelsea", "Club Brugge", "Sporting CP", "Union Saint-Gilloise"]},
-  {"home_team": "Liverpool", "away_teams": ["Inter Milan", "Eintracht Frankfurt", "Marseille", "Galatasaray"], "home_hosts": ["Real Madrid", "Atlético Madrid", "PSV Eindhoven", "Qarabağ"]},
-  {"home_team": "Inter Milan", "away_teams": ["Borussia Dortmund", "Atlético Madrid", "Ajax", "Union Saint-Gilloise"], "home_hosts": ["Liverpool", "Arsenal", "Slavia Prague", "Kairat"]},
-  {"home_team": "Chelsea", "away_teams": ["Bayern Munich", "Atalanta", "Napoli", "Qarabağ"], "home_hosts": ["Barcelona", "Benfica", "Ajax", "Pafos"]},
-  {"home_team": "Borussia Dortmund", "away_teams": ["Manchester City", "Juventus", "Tottenham Hotspur", "Copenhagen"], "home_hosts": ["Inter Milan", "Villarreal", "Bodø/Glimt", "Athletic Bilbao"]},
-  {"home_team": "Barcelona", "away_teams": ["Chelsea", "Club Brugge", "Slavia Prague", "Newcastle United"], "home_hosts": ["Paris Saint-Germain", "Eintracht Frankfurt", "Olympiacos", "Copenhagen"]},
-  {"home_team": "Arsenal", "away_teams": ["Inter Milan", "Club Brugge", "Slavia Prague", "Athletic Bilbao"], "home_hosts": ["Bayern Munich", "Atlético Madrid", "Olympiacos", "Kairat"]},
-  {"home_team": "Bayer Leverkusen", "away_teams": ["Manchester City", "Benfica", "Olympiacos", "Copenhagen"], "home_hosts": ["Paris Saint-Germain", "Villarreal", "PSV Eindhoven", "Newcastle United"]},
-  {"home_team": "Atlético Madrid", "away_teams": ["Liverpool", "Arsenal", "PSV Eindhoven", "Galatasaray"], "home_hosts": ["Inter Milan", "Eintracht Frankfurt", "Bodø/Glimt", "Union Saint-Gilloise"]},
-  {"home_team": "Benfica", "away_teams": ["Chelsea", "Juventus", "Ajax", "Newcastle United"], "home_hosts": ["Real Madrid", "Bayer Leverkusen", "Napoli", "Qarabağ"]},
-  {"home_team": "Atalanta", "away_teams": ["Paris Saint-Germain", "Eintracht Frankfurt", "Marseille", "Union Saint-Gilloise"], "home_hosts": ["Chelsea", "Club Brugge", "Slavia Prague", "Athletic Bilbao"]},
-  {"home_team": "Villarreal", "away_teams": ["Borussia Dortmund", "Bayer Leverkusen", "Tottenham Hotspur", "Pafos"], "home_hosts": ["Manchester City", "Juventus", "Ajax", "Copenhagen"]},
-  {"home_team": "Juventus", "away_teams": ["Real Madrid", "Villarreal", "Bodø/Glimt", "Monaco"], "home_hosts": ["Borussia Dortmund", "Benfica", "Sporting CP", "Pafos"]},
-  {"home_team": "Eintracht Frankfurt", "away_teams": ["Barcelona", "Atlético Madrid", "Napoli", "Qarabağ"], "home_hosts": ["Liverpool", "Atalanta", "Tottenham Hotspur", "Galatasaray"]},
-  {"home_team": "Club Brugge", "away_teams": ["Bayern Munich", "Atalanta", "Sporting CP", "Kairat"], "home_hosts": ["Barcelona", "Arsenal", "Marseille", "Monaco"]},
-  {"home_team": "Tottenham Hotspur", "away_teams": ["Paris Saint-Germain", "Eintracht Frankfurt", "Bodø/Glimt", "Monaco"], "home_hosts": ["Borussia Dortmund", "Villarreal", "Slavia Prague", "Copenhagen"]},
-  {"home_team": "PSV Eindhoven", "away_teams": ["Liverpool", "Bayer Leverkusen", "Olympiacos", "Newcastle United"], "home_hosts": ["Bayern Munich", "Atlético Madrid", "Napoli", "Union Saint-Gilloise"]},
-  {"home_team": "Ajax", "away_teams": ["Chelsea", "Villarreal", "Marseille", "Qarabağ"], "home_hosts": ["Inter Milan", "Benfica", "Olympiacos", "Galatasaray"]},
-  {"home_team": "Napoli", "away_teams": ["Manchester City", "Benfica", "PSV Eindhoven", "Copenhagen"], "home_hosts": ["Chelsea", "Eintracht Frankfurt", "Sporting CP", "Qarabağ"]},
-  {"home_team": "Sporting CP", "away_teams": ["Bayern Munich", "Juventus", "Napoli", "Athletic Bilbao"], "home_hosts": ["Paris Saint-Germain", "Club Brugge", "Marseille", "Kairat"]},
-  {"home_team": "Olympiacos", "away_teams": ["Barcelona", "Arsenal", "Ajax", "Kairat"], "home_hosts": ["Real Madrid", "Bayer Leverkusen", "PSV Eindhoven", "Pafos"]},
-  {"home_team": "Slavia Prague", "away_teams": ["Inter Milan", "Atalanta", "Tottenham Hotspur", "Pafos"], "home_hosts": ["Barcelona", "Arsenal", "Bodø/Glimt", "Athletic Bilbao"]},
-  {"home_team": "Bodø/Glimt", "away_teams": ["Borussia Dortmund", "Atlético Madrid", "Slavia Prague", "Galatasaray"], "home_hosts": ["Manchester City", "Juventus", "Tottenham Hotspur", "Monaco"]},
-  {"home_team": "Marseille", "away_teams": ["Real Madrid", "Club Brugge", "Sporting CP", "Union Saint-Gilloise"], "home_hosts": ["Liverpool", "Atalanta", "Ajax", "Newcastle United"]},
-  {"home_team": "Copenhagen", "away_teams": ["Barcelona", "Villarreal", "Tottenham Hotspur", "Qarabağ"], "home_hosts": ["Borussia Dortmund", "Bayer Leverkusen", "Napoli", "Kairat"]},
-  {"home_team": "Monaco", "away_teams": ["Real Madrid", "Club Brugge", "Bodø/Glimt", "Pafos"], "home_hosts": ["Manchester City", "Juventus", "Tottenham Hotspur", "Galatasaray"]},
-  {"home_team": "Galatasaray", "away_teams": ["Manchester City", "Eintracht Frankfurt", "Ajax", "Monaco"], "home_hosts": ["Liverpool", "Atlético Madrid", "Bodø/Glimt", "Union Saint-Gilloise"]},
-  {"home_team": "Union Saint-Gilloise", "away_teams": ["Bayern Munich", "Atlético Madrid", "PSV Eindhoven", "Galatasaray"], "home_hosts": ["Inter Milan", "Atalanta", "Marseille", "Newcastle United"]},
-  {"home_team": "Qarabağ", "away_teams": ["Liverpool", "Benfica", "Napoli", "Athletic Bilbao"], "home_hosts": ["Chelsea", "Eintracht Frankfurt", "Ajax", "Copenhagen"]},
-  {"home_team": "Athletic Bilbao", "away_teams": ["Borussia Dortmund", "Atalanta", "Slavia Prague", "Newcastle United"], "home_hosts": ["Paris Saint-Germain", "Arsenal", "Sporting CP", "Qarabağ"]},
-  {"home_team": "Newcastle United", "away_teams": ["Paris Saint-Germain", "Bayer Leverkusen", "Marseille", "Union Saint-Gilloise"], "home_hosts": ["Barcelona", "Benfica", "PSV Eindhoven", "Athletic Bilbao"]},
-  {"home_team": "Pafos", "away_teams": ["Chelsea", "Juventus", "Olympiacos", "Kairat"], "home_hosts": ["Bayern Munich", "Villarreal", "Slavia Prague", "Monaco"]},
-  {"home_team": "Kairat", "away_teams": ["Inter Milan", "Arsenal", "Sporting CP", "Copenhagen"], "home_hosts": ["Real Madrid", "Club Brugge", "Olympiacos", "Pafos"]}
-];
+// Function to load JSON data
+async function loadData() {
+    try {
+        const [stadiumResponse, matchResponse] = await Promise.all([
+            fetch('./data/stadiums.json'),
+            fetch('./data/matches.json')
+        ]);
+
+        if (!stadiumResponse.ok || !matchResponse.ok) {
+            throw new Error('Failed to load data files');
+        }
+
+        stadiumData = await stadiumResponse.json();
+        matchData = await matchResponse.json();
+
+        console.log('Data loaded successfully:', { stadiums: stadiumData.length, matches: matchData.length });
+        return true;
+    } catch (error) {
+        console.error('Error loading data:', error);
+        return false;
+    }
+}
 
 // Global variables
 let matchesMap, interactiveMap;
@@ -685,15 +633,22 @@ function hideLoading() {
 }
 
 // Initialize everything when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM loaded, initializing application...');
-    
+
+    // Load data first
+    const dataLoaded = await loadData();
+    if (!dataLoaded) {
+        console.error('Failed to load application data');
+        return;
+    }
+
     // Initialize tabs first
     initializeTabs();
-    
+
     // Initialize search
     initializeSearch();
-    
+
     // Initialize content based on default active tab
     const activeTab = document.querySelector('.tab-panel--active');
     console.log('Initial active tab:', activeTab ? activeTab.id : 'none');

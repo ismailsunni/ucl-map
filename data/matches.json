@@ -1,0 +1,182 @@
+[
+  {
+    "home_team": "Paris Saint-Germain",
+    "away_teams": ["Barcelona", "Bayer Leverkusen", "Sporting CP", "Athletic Bilbao"],
+    "home_hosts": ["Bayern Munich", "Atalanta", "Tottenham Hotspur", "Newcastle United"]
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_teams": ["Liverpool", "Benfica", "Olympiacos", "Kairat"],
+    "home_hosts": ["Manchester City", "Juventus", "Marseille", "Monaco"]
+  },
+  {
+    "home_team": "Manchester City",
+    "away_teams": ["Real Madrid", "Villarreal", "Bodø/Glimt", "Monaco"],
+    "home_hosts": ["Borussia Dortmund", "Bayer Leverkusen", "Napoli", "Galatasaray"]
+  },
+  {
+    "home_team": "Bayern Munich",
+    "away_teams": ["Paris Saint-Germain", "Arsenal", "PSV Eindhoven", "Pafos"],
+    "home_hosts": ["Chelsea", "Club Brugge", "Sporting CP", "Union Saint-Gilloise"]
+  },
+  {
+    "home_team": "Liverpool",
+    "away_teams": ["Inter Milan", "Eintracht Frankfurt", "Marseille", "Galatasaray"],
+    "home_hosts": ["Real Madrid", "Atlético Madrid", "PSV Eindhoven", "Qarabağ"]
+  },
+  {
+    "home_team": "Inter Milan",
+    "away_teams": ["Borussia Dortmund", "Atlético Madrid", "Ajax", "Union Saint-Gilloise"],
+    "home_hosts": ["Liverpool", "Arsenal", "Slavia Prague", "Kairat"]
+  },
+  {
+    "home_team": "Chelsea",
+    "away_teams": ["Bayern Munich", "Atalanta", "Napoli", "Qarabağ"],
+    "home_hosts": ["Barcelona", "Benfica", "Ajax", "Pafos"]
+  },
+  {
+    "home_team": "Borussia Dortmund",
+    "away_teams": ["Manchester City", "Juventus", "Tottenham Hotspur", "Copenhagen"],
+    "home_hosts": ["Inter Milan", "Villarreal", "Bodø/Glimt", "Athletic Bilbao"]
+  },
+  {
+    "home_team": "Barcelona",
+    "away_teams": ["Chelsea", "Club Brugge", "Slavia Prague", "Newcastle United"],
+    "home_hosts": ["Paris Saint-Germain", "Eintracht Frankfurt", "Olympiacos", "Copenhagen"]
+  },
+  {
+    "home_team": "Arsenal",
+    "away_teams": ["Inter Milan", "Club Brugge", "Slavia Prague", "Athletic Bilbao"],
+    "home_hosts": ["Bayern Munich", "Atlético Madrid", "Olympiacos", "Kairat"]
+  },
+  {
+    "home_team": "Bayer Leverkusen",
+    "away_teams": ["Manchester City", "Benfica", "Olympiacos", "Copenhagen"],
+    "home_hosts": ["Paris Saint-Germain", "Villarreal", "PSV Eindhoven", "Newcastle United"]
+  },
+  {
+    "home_team": "Atlético Madrid",
+    "away_teams": ["Liverpool", "Arsenal", "PSV Eindhoven", "Galatasaray"],
+    "home_hosts": ["Inter Milan", "Eintracht Frankfurt", "Bodø/Glimt", "Union Saint-Gilloise"]
+  },
+  {
+    "home_team": "Benfica",
+    "away_teams": ["Chelsea", "Juventus", "Ajax", "Newcastle United"],
+    "home_hosts": ["Real Madrid", "Bayer Leverkusen", "Napoli", "Qarabağ"]
+  },
+  {
+    "home_team": "Atalanta",
+    "away_teams": ["Paris Saint-Germain", "Eintracht Frankfurt", "Marseille", "Union Saint-Gilloise"],
+    "home_hosts": ["Chelsea", "Club Brugge", "Slavia Prague", "Athletic Bilbao"]
+  },
+  {
+    "home_team": "Villarreal",
+    "away_teams": ["Borussia Dortmund", "Bayer Leverkusen", "Tottenham Hotspur", "Pafos"],
+    "home_hosts": ["Manchester City", "Juventus", "Ajax", "Copenhagen"]
+  },
+  {
+    "home_team": "Juventus",
+    "away_teams": ["Real Madrid", "Villarreal", "Bodø/Glimt", "Monaco"],
+    "home_hosts": ["Borussia Dortmund", "Benfica", "Sporting CP", "Pafos"]
+  },
+  {
+    "home_team": "Eintracht Frankfurt",
+    "away_teams": ["Barcelona", "Atlético Madrid", "Napoli", "Qarabağ"],
+    "home_hosts": ["Liverpool", "Atalanta", "Tottenham Hotspur", "Galatasaray"]
+  },
+  {
+    "home_team": "Club Brugge",
+    "away_teams": ["Bayern Munich", "Atalanta", "Sporting CP", "Kairat"],
+    "home_hosts": ["Barcelona", "Arsenal", "Marseille", "Monaco"]
+  },
+  {
+    "home_team": "Tottenham Hotspur",
+    "away_teams": ["Paris Saint-Germain", "Eintracht Frankfurt", "Bodø/Glimt", "Monaco"],
+    "home_hosts": ["Borussia Dortmund", "Villarreal", "Slavia Prague", "Copenhagen"]
+  },
+  {
+    "home_team": "PSV Eindhoven",
+    "away_teams": ["Liverpool", "Bayer Leverkusen", "Olympiacos", "Newcastle United"],
+    "home_hosts": ["Bayern Munich", "Atlético Madrid", "Napoli", "Union Saint-Gilloise"]
+  },
+  {
+    "home_team": "Ajax",
+    "away_teams": ["Chelsea", "Villarreal", "Marseille", "Qarabağ"],
+    "home_hosts": ["Inter Milan", "Benfica", "Olympiacos", "Galatasaray"]
+  },
+  {
+    "home_team": "Napoli",
+    "away_teams": ["Manchester City", "Benfica", "PSV Eindhoven", "Copenhagen"],
+    "home_hosts": ["Chelsea", "Eintracht Frankfurt", "Sporting CP", "Qarabağ"]
+  },
+  {
+    "home_team": "Sporting CP",
+    "away_teams": ["Bayern Munich", "Juventus", "Napoli", "Athletic Bilbao"],
+    "home_hosts": ["Paris Saint-Germain", "Club Brugge", "Marseille", "Kairat"]
+  },
+  {
+    "home_team": "Olympiacos",
+    "away_teams": ["Barcelona", "Arsenal", "Ajax", "Kairat"],
+    "home_hosts": ["Real Madrid", "Bayer Leverkusen", "PSV Eindhoven", "Pafos"]
+  },
+  {
+    "home_team": "Slavia Prague",
+    "away_teams": ["Inter Milan", "Atalanta", "Tottenham Hotspur", "Pafos"],
+    "home_hosts": ["Barcelona", "Arsenal", "Bodø/Glimt", "Athletic Bilbao"]
+  },
+  {
+    "home_team": "Bodø/Glimt",
+    "away_teams": ["Borussia Dortmund", "Atlético Madrid", "Slavia Prague", "Galatasaray"],
+    "home_hosts": ["Manchester City", "Juventus", "Tottenham Hotspur", "Monaco"]
+  },
+  {
+    "home_team": "Marseille",
+    "away_teams": ["Real Madrid", "Club Brugge", "Sporting CP", "Union Saint-Gilloise"],
+    "home_hosts": ["Liverpool", "Atalanta", "Ajax", "Newcastle United"]
+  },
+  {
+    "home_team": "Copenhagen",
+    "away_teams": ["Barcelona", "Villarreal", "Tottenham Hotspur", "Qarabağ"],
+    "home_hosts": ["Borussia Dortmund", "Bayer Leverkusen", "Napoli", "Kairat"]
+  },
+  {
+    "home_team": "Monaco",
+    "away_teams": ["Real Madrid", "Club Brugge", "Bodø/Glimt", "Pafos"],
+    "home_hosts": ["Manchester City", "Juventus", "Tottenham Hotspur", "Galatasaray"]
+  },
+  {
+    "home_team": "Galatasaray",
+    "away_teams": ["Manchester City", "Eintracht Frankfurt", "Ajax", "Monaco"],
+    "home_hosts": ["Liverpool", "Atlético Madrid", "Bodø/Glimt", "Union Saint-Gilloise"]
+  },
+  {
+    "home_team": "Union Saint-Gilloise",
+    "away_teams": ["Bayern Munich", "Atlético Madrid", "PSV Eindhoven", "Galatasaray"],
+    "home_hosts": ["Inter Milan", "Atalanta", "Marseille", "Newcastle United"]
+  },
+  {
+    "home_team": "Qarabağ",
+    "away_teams": ["Liverpool", "Benfica", "Napoli", "Athletic Bilbao"],
+    "home_hosts": ["Chelsea", "Eintracht Frankfurt", "Ajax", "Copenhagen"]
+  },
+  {
+    "home_team": "Athletic Bilbao",
+    "away_teams": ["Borussia Dortmund", "Atalanta", "Slavia Prague", "Newcastle United"],
+    "home_hosts": ["Paris Saint-Germain", "Arsenal", "Sporting CP", "Qarabağ"]
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_teams": ["Paris Saint-Germain", "Bayer Leverkusen", "Marseille", "Union Saint-Gilloise"],
+    "home_hosts": ["Barcelona", "Benfica", "PSV Eindhoven", "Athletic Bilbao"]
+  },
+  {
+    "home_team": "Pafos",
+    "away_teams": ["Chelsea", "Juventus", "Olympiacos", "Kairat"],
+    "home_hosts": ["Bayern Munich", "Villarreal", "Slavia Prague", "Monaco"]
+  },
+  {
+    "home_team": "Kairat",
+    "away_teams": ["Inter Milan", "Arsenal", "Sporting CP", "Copenhagen"],
+    "home_hosts": ["Real Madrid", "Club Brugge", "Olympiacos", "Pafos"]
+  }
+]
