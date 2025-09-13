@@ -17,6 +17,9 @@ async function loadData() {
         stadiumData = await stadiumResponse.json();
         matchData = await matchResponse.json();
 
+        // Initialize table data after loading
+        tableData = [...stadiumData];
+
         console.log('Data loaded successfully:', { stadiums: stadiumData.length, matches: matchData.length });
         return true;
     } catch (error) {
@@ -32,7 +35,7 @@ let hoverLines = [];
 let matchesMarkers = new Map();
 let interactiveMarkers = new Map();
 let allMatchLines = [];
-let tableData = [...stadiumData];
+let tableData = [];
 let currentSort = { column: null, direction: 'asc' };
 let mapsInitialized = false;
 let tableInitialized = false;
@@ -567,7 +570,13 @@ function initializeSearch() {
 }
 
 function searchTeam(searchTerm) {
-    const matchedTeams = stadiumData.filter(stadium => 
+    // Guard clause: ensure data is loaded
+    if (!stadiumData || stadiumData.length === 0) {
+        console.log('Stadium data not yet loaded');
+        return;
+    }
+
+    const matchedTeams = stadiumData.filter(stadium =>
         stadium.team.toLowerCase().includes(searchTerm) ||
         stadium.city.toLowerCase().includes(searchTerm) ||
         stadium.country.toLowerCase().includes(searchTerm)
@@ -605,12 +614,17 @@ function searchTeam(searchTerm) {
 
 function clearSearch() {
     const activeTab = document.querySelector('.tab-panel--active');
-    
+
     if (activeTab && activeTab.id === 'matches-tab' && matchesMap) {
         matchesMap.setView([50.0, 10.0], 4);
     } else if (activeTab && activeTab.id === 'interactive-tab' && interactiveMap) {
         interactiveMap.setView([50.0, 10.0], 4);
     } else if (activeTab && activeTab.id === 'table-tab') {
+        // Guard clause: ensure data is loaded
+        if (!stadiumData || stadiumData.length === 0) {
+            console.log('Stadium data not yet loaded');
+            return;
+        }
         // Reset table data
         tableData = [...stadiumData];
         loadTable();
