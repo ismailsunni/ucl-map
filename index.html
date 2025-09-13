@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UEFA Champions League 2025-26 Travel Analysis</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>UEFA Champions League 2025-26</h1>
+            <p class="header-subtitle">Interactive Travel Analysis</p>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="teamSearch" class="form-control" placeholder="Search for a team...">
+                <button id="clearSearch" class="btn btn--secondary btn--sm">Clear</button>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <nav class="tabs">
+            <button class="tab-btn tab-btn--active" data-tab="matches">All Matches Overview</button>
+            <button class="tab-btn" data-tab="interactive">Interactive Travel Analysis</button>
+            <button class="tab-btn" data-tab="table">Travel Data Table</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- All Matches Tab -->
+            <div id="matches-tab" class="tab-panel tab-panel--active">
+                <div class="map-info">
+                    <h3>All Matches Overview</h3>
+                    <p>Explore all stadium locations and match connections with directional arrows showing travel patterns.</p>
+                </div>
+                <div class="map-legends">
+                    <div class="legend">
+                        <h4>Team Pots</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #dc2626;"></div>
+                                <span>Pot 1</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #2563eb;"></div>
+                                <span>Pot 2</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #16a34a;"></div>
+                                <span>Pot 3</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ea580c;"></div>
+                                <span>Pot 4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="matchesMap" class="map-container"></div>
+            </div>
+
+            <!-- Interactive Analysis Tab -->
+            <div id="interactive-tab" class="tab-panel">
+                <div class="map-info">
+                    <h3>Interactive Travel Analysis</h3>
+                    <p>Hover over stadiums to see travel patterns. Green lines = home matches, Red lines = away matches.</p>
+                </div>
+                <div class="map-legends">
+                    <div class="legend">
+                        <h4>Travel Lines</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <div class="legend-line" style="background-color: #16a34a;"></div>
+                                <span>Home Matches</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-line" style="background-color: #dc2626;"></div>
+                                <span>Away Matches</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="legend">
+                        <h4>Marker Size</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span>Larger markers = More total travel distance</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="interactiveMap" class="map-container"></div>
+            </div>
+
+            <!-- Travel Data Table Tab -->
+            <div id="table-tab" class="tab-panel">
+                <div class="table-info">
+                    <h3>Travel Data Table</h3>
+                    <p>Sortable table with all team travel data. Click column headers to sort. The shortest and longest trips are based on each team's own away travels.</p>
+                    
+                    <div class="table-controls">
+                        <button id="exportCSV" class="btn btn--secondary btn--sm">Export CSV</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="travelTable" class="travel-table">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-column="team">
+                                    Team <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="city">
+                                    City <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="country">
+                                    Country <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="pot">
+                                    Pot <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="total_travel">
+                                    Total Travel (km) <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="total_guest_travel">
+                                    Guest Travel (km) <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="travel_difference">
+                                    Travel Difference <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="shortest_trip">
+                                    Shortest Trip <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="longest_trip">
+                                    Longest Trip <span class="sort-indicator"></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Table content will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading-indicator">
+            <div class="loading-spinner"></div>
+            <p>Loading application...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
