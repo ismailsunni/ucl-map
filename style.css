@@ -1187,14 +1187,14 @@ select.form-control {
 }
 
 .team-label span {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--color-card-border);
+  background: var(--color-charcoal-800);
+  border: 1px solid var(--color-charcoal-700);
   padding: var(--space-4) var(--space-8);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
-  box-shadow: var(--shadow-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
   white-space: nowrap;
   display: inline-block;
   transition: all 0.2s ease;
