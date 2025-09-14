@@ -309,7 +309,7 @@ function loadInteractiveMap() {
             className: 'custom-popup'
         });
 
-        // Add team label
+        // Create team label (but don't add to map yet)
         const labelIcon = L.divIcon({
             className: 'team-label',
             html: `<span>${stadium.team}</span>`,
@@ -319,7 +319,7 @@ function loadInteractiveMap() {
 
         const labelMarker = L.marker([stadium.latitude, stadium.longitude], {
             icon: labelIcon
-        }).addTo(interactiveMap);
+        });
 
         // Add hover events
         marker.on('mouseover', function() {
@@ -346,10 +346,15 @@ function showTravelLines(teamName) {
 
     if (!teamData || !homeStadium) return;
 
-    // Highlight the hovered team's label
+    // Show and highlight the hovered team's label
     const hoveredLabel = teamLabels.get(teamName);
     if (hoveredLabel) {
-        hoveredLabel.getElement().querySelector('.team-label span').classList.add('team-label--hovered');
+        hoveredLabel.addTo(interactiveMap);
+        setTimeout(() => {
+            if (hoveredLabel.getElement()) {
+                hoveredLabel.getElement().querySelector('.team-label span').classList.add('team-label--hovered');
+            }
+        }, 10);
     }
 
     const opponentTeams = [];
@@ -374,11 +379,16 @@ function showTravelLines(teamName) {
         }
     });
 
-    // Highlight opponent team labels
+    // Show and highlight opponent team labels
     opponentTeams.forEach(opponentTeam => {
         const opponentLabel = teamLabels.get(opponentTeam);
         if (opponentLabel) {
-            opponentLabel.getElement().querySelector('.team-label span').classList.add('team-label--opponent');
+            opponentLabel.addTo(interactiveMap);
+            setTimeout(() => {
+                if (opponentLabel.getElement()) {
+                    opponentLabel.getElement().querySelector('.team-label span').classList.add('team-label--opponent');
+                }
+            }, 10);
             highlightedLabels.push(opponentLabel);
         }
     });
@@ -427,19 +437,29 @@ function hideTravelLines() {
     });
     hoverLines = [];
 
-    // Clear label highlights
+    // Hide and clear label highlights
     if (currentHoveredTeam) {
         const hoveredLabel = teamLabels.get(currentHoveredTeam);
-        if (hoveredLabel && hoveredLabel.getElement()) {
-            const span = hoveredLabel.getElement().querySelector('.team-label span');
-            if (span) span.classList.remove('team-label--hovered');
+        if (hoveredLabel) {
+            if (hoveredLabel.getElement()) {
+                const span = hoveredLabel.getElement().querySelector('.team-label span');
+                if (span) span.classList.remove('team-label--hovered');
+            }
+            if (interactiveMap.hasLayer(hoveredLabel)) {
+                interactiveMap.removeLayer(hoveredLabel);
+            }
         }
     }
 
     highlightedLabels.forEach(label => {
-        if (label && label.getElement()) {
-            const span = label.getElement().querySelector('.team-label span');
-            if (span) span.classList.remove('team-label--opponent');
+        if (label) {
+            if (label.getElement()) {
+                const span = label.getElement().querySelector('.team-label span');
+                if (span) span.classList.remove('team-label--opponent');
+            }
+            if (interactiveMap.hasLayer(label)) {
+                interactiveMap.removeLayer(label);
+            }
         }
     });
     highlightedLabels = [];
