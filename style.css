@@ -988,7 +988,7 @@ select.form-control {
   text-align: left;
   border-bottom: 2px solid var(--color-border);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  color: rgba(17, 24, 39, 1); /* Dark gray for excellent contrast */
   white-space: nowrap;
   position: relative;
 }
@@ -1035,7 +1035,7 @@ select.form-control {
 .travel-table td {
   padding: var(--space-10) var(--space-8);
   border-bottom: 1px solid var(--color-card-border-inner);
-  color: var(--color-text);
+  color: rgba(17, 24, 39, 1); /* Dark gray for excellent contrast on white */
   white-space: nowrap;
 }
 
