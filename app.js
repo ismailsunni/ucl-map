@@ -915,12 +915,44 @@ function searchTeam(searchTerm) {
             }
         } else if (activeTab && activeTab.id === 'table-tab') {
             // Filter table data for search
-            tableData = stadiumData.filter(stadium => 
+            tableData = stadiumData.filter(stadium =>
                 stadium.team.toLowerCase().includes(searchTerm) ||
                 stadium.city.toLowerCase().includes(searchTerm) ||
                 stadium.country.toLowerCase().includes(searchTerm)
             );
             loadTable();
+        } else if (activeTab && activeTab.id === 'fixtures-tab') {
+            // Filter matches data for search
+            const originalData = [];
+            matchData.forEach(teamData => {
+                const homeTeam = teamData.home_team;
+                const homeStadium = getStadiumByTeam(homeTeam);
+                if (!homeStadium) return;
+
+                teamData.away_matches.forEach(match => {
+                    const awayTeam = match.team;
+                    const awayStadium = getStadiumByTeam(awayTeam);
+                    if (awayStadium) {
+                        originalData.push({
+                            home_team: homeTeam,
+                            home_country: homeStadium.country,
+                            home_pot: homeStadium.pot,
+                            away_team: awayTeam,
+                            away_country: awayStadium.country,
+                            away_pot: awayStadium.pot,
+                            distance: match.distance
+                        });
+                    }
+                });
+            });
+
+            matchesTableData = originalData.filter(match =>
+                match.home_team.toLowerCase().includes(searchTerm) ||
+                match.away_team.toLowerCase().includes(searchTerm) ||
+                match.home_country.toLowerCase().includes(searchTerm) ||
+                match.away_country.toLowerCase().includes(searchTerm)
+            );
+            renderMatchesTable();
         }
     }
 }
@@ -941,6 +973,11 @@ function clearSearch() {
         // Reset table data
         tableData = [...stadiumData];
         loadTable();
+    } else if (activeTab && activeTab.id === 'fixtures-tab') {
+        // Reset matches table data
+        if (matchData && matchData.length > 0) {
+            loadMatchesTable(); // This will regenerate the full matches data
+        }
     }
 }
 
