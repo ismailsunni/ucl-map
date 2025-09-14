@@ -383,7 +383,7 @@ function showTravelLines(teamName) {
     teamData.away_matches.forEach(visitingTeamData => {
         const visitingStadium = getStadiumByTeam(visitingTeamData.team);
         if (visitingStadium) {
-            const lineData = drawTravelLine(visitingStadium, homeStadium, '#16a34a', 'home');
+            const lineData = drawTravelLine(visitingStadium, homeStadium, '#16a34a', 'home', visitingTeamData.team);
             if (lineData) hoverLines.push(lineData);
             opponentTeams.push(visitingTeamData.team);
         }
@@ -393,7 +393,7 @@ function showTravelLines(teamName) {
     teamData.home_matches.forEach(hostTeamData => {
         const hostStadium = getStadiumByTeam(hostTeamData.team);
         if (hostStadium) {
-            const lineData = drawTravelLine(homeStadium, hostStadium, '#dc2626', 'away');
+            const lineData = drawTravelLine(homeStadium, hostStadium, '#dc2626', 'away', hostTeamData.team);
             if (lineData) hoverLines.push(lineData);
             opponentTeams.push(hostTeamData.team);
         }
@@ -414,32 +414,36 @@ function showTravelLines(teamName) {
     });
 }
 
-function drawTravelLine(fromStadium, toStadium, color, type) {
+function drawTravelLine(fromStadium, toStadium, color, type, opponentTeam) {
     if (!interactiveMap || !fromStadium || !toStadium) return null;
-    
+
     const from = [fromStadium.latitude, fromStadium.longitude];
     const to = [toStadium.latitude, toStadium.longitude];
     const distance = haversineDistance(from[0], from[1], to[0], to[1]);
-    
+
     const line = L.polyline([from, to], {
         color: color,
         weight: 3,
         opacity: 0.8
     }).addTo(interactiveMap);
 
-    // Add distance label
+    // Add distance label with opponent's pot color
     const midLat = (from[0] + to[0]) / 2;
     const midLng = (from[1] + to[1]) / 2;
-    
+
+    // Get opponent's pot color
+    const opponentStadium = getStadiumByTeam(opponentTeam);
+    const opponentPotColor = opponentStadium ? getPotColor(opponentStadium.pot) : color;
+
     const distanceLabel = L.divIcon({
         className: 'distance-label',
-        html: `${distance} km`,
+        html: `<span style="background-color: ${opponentPotColor}; border-color: ${opponentPotColor};">${distance} km</span>`,
         iconSize: [60, 20],
         iconAnchor: [30, 10]
     });
 
     const labelMarker = L.marker([midLat, midLng], { icon: distanceLabel }).addTo(interactiveMap);
-    
+
     return { line, label: labelMarker };
 }
 
