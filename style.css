@@ -893,8 +893,9 @@ select.form-control {
 
 .legend-items {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-16);
 }
 
 .legend-item {
