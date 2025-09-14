@@ -988,7 +988,7 @@ select.form-control {
   text-align: left;
   border-bottom: 2px solid var(--color-border);
   font-weight: var(--font-weight-semibold);
-  color: rgba(17, 24, 39, 1); /* Dark gray for excellent contrast */
+  color: rgba(0, 0, 0, 1); /* Black font on light header background */
   white-space: nowrap;
   position: relative;
 }
@@ -1035,25 +1035,28 @@ select.form-control {
 .travel-table td {
   padding: var(--space-10) var(--space-8);
   border-bottom: 1px solid var(--color-card-border-inner);
-  color: rgba(17, 24, 39, 1); /* Dark gray for excellent contrast on white */
   white-space: nowrap;
 }
 
 .travel-table tbody tr {
-  transition: background-color var(--duration-fast) var(--ease-standard);
+  transition: all var(--duration-fast) var(--ease-standard);
   background: var(--color-white);
+  color: rgba(0, 0, 0, 1); /* Black font on white background */
 }
 
 .travel-table tbody tr:hover {
   background: rgba(59, 130, 246, 0.08); /* Light blue hover */
+  color: rgba(0, 0, 0, 1); /* Black font on light blue */
 }
 
 .travel-table tbody tr:nth-child(even) {
   background: rgba(148, 163, 184, 0.08); /* Light slate gray */
+  color: rgba(0, 0, 0, 1); /* Black font on light gray */
 }
 
 .travel-table tbody tr:nth-child(even):hover {
   background: rgba(59, 130, 246, 0.12); /* Slightly stronger blue hover for even rows */
+  color: rgba(0, 0, 0, 1); /* Black font on light blue */
 }
 
 /* Pot color indicators in table */
