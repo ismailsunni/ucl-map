@@ -1000,6 +1000,10 @@ function hideLoading() {
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM loaded, initializing application...');
 
+    // Force light theme
+    document.documentElement.setAttribute('data-color-scheme', 'light');
+    document.body.setAttribute('data-color-scheme', 'light');
+
     // Load data first
     const dataLoaded = await loadData();
     if (!dataLoaded) {
