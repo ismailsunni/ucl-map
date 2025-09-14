@@ -1041,18 +1041,19 @@ select.form-control {
 
 .travel-table tbody tr {
   transition: background-color var(--duration-fast) var(--ease-standard);
+  background: var(--color-white);
 }
 
 .travel-table tbody tr:hover {
-  background: var(--color-bg-8);
+  background: rgba(59, 130, 246, 0.08); /* Light blue hover */
 }
 
 .travel-table tbody tr:nth-child(even) {
-  background: rgba(var(--color-gray-200-rgb, 245, 245, 245), 0.3);
+  background: rgba(148, 163, 184, 0.08); /* Light slate gray */
 }
 
 .travel-table tbody tr:nth-child(even):hover {
-  background: var(--color-bg-8);
+  background: rgba(59, 130, 246, 0.12); /* Slightly stronger blue hover for even rows */
 }
 
 /* Pot color indicators in table */
