@@ -760,6 +760,25 @@ select.form-control {
   margin: 0;
 }
 
+/* Project Description */
+.project-description {
+  margin: var(--space-24) auto var(--space-32) auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.project-description p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.project-description strong {
+  color: var(--color-text);
+  font-weight: var(--font-weight-semibold);
+}
+
 /* Search Section */
 .search-section {
   margin-bottom: var(--space-24);
