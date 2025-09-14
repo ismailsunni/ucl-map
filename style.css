@@ -779,6 +779,18 @@ select.form-control {
   font-weight: var(--font-weight-semibold);
 }
 
+.github-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color 0.2s ease;
+}
+
+.github-link:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
 /* Search Section */
 .search-section {
   margin-bottom: var(--space-24);
