@@ -516,7 +516,7 @@ function loadTable() {
 
         row.innerHTML = `
             <td>
-                <span class="pot-indicator pot-${stadium.pot}"></span>
+                <span class="pot-indicator" style="background-color: ${getPotColor(stadium.pot)};"></span>
                 ${stadium.team}
             </td>
             <td>${stadium.city}</td>
@@ -710,15 +710,13 @@ function renderMatchesTable() {
     tbody.innerHTML = matchesTableData.map(match => `
         <tr>
             <td>
-                <span class="team-name" data-pot="${match.home_pot}" style="color: ${getPotColor(match.home_pot)};">
-                    ${match.home_team}
-                </span>
+                <span class="pot-indicator" style="background-color: ${getPotColor(match.home_pot)};"></span>
+                ${match.home_team}
             </td>
             <td>${match.home_country}</td>
             <td>
-                <span class="team-name" data-pot="${match.away_pot}" style="color: ${getPotColor(match.away_pot)};">
-                    ${match.away_team}
-                </span>
+                <span class="pot-indicator" style="background-color: ${getPotColor(match.away_pot)};"></span>
+                ${match.away_team}
             </td>
             <td>${match.away_country}</td>
             <td class="distance-cell">${match.distance.toLocaleString()} km</td>
