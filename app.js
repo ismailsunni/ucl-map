@@ -658,6 +658,154 @@ function exportToCSV() {
     }
 }
 
+// Matches table functionality (Tab 4)
+let matchesTableInitialized = false;
+let matchesTableData = [];
+
+function initializeMatchesTable() {
+    if (matchesTableInitialized) return;
+
+    loadMatchesTable();
+    initializeMatchesTableSorting();
+    initializeMatchesCSVExport();
+    matchesTableInitialized = true;
+}
+
+function loadMatchesTable() {
+    matchesTableData = [];
+
+    // Generate all matches from matchData
+    matchData.forEach(teamData => {
+        const homeTeam = teamData.home_team;
+        const homeStadium = getStadiumByTeam(homeTeam);
+
+        if (!homeStadium) return;
+
+        // Add away matches (this team is hosting)
+        teamData.away_matches.forEach(match => {
+            const awayTeam = match.team;
+            const awayStadium = getStadiumByTeam(awayTeam);
+
+            if (awayStadium) {
+                matchesTableData.push({
+                    home_team: homeTeam,
+                    home_country: homeStadium.country,
+                    home_pot: homeStadium.pot,
+                    away_team: awayTeam,
+                    away_country: awayStadium.country,
+                    away_pot: awayStadium.pot,
+                    distance: match.distance
+                });
+            }
+        });
+    });
+
+    renderMatchesTable();
+}
+
+function renderMatchesTable() {
+    const tbody = document.getElementById('matchesTableBody');
+    if (!tbody) return;
+
+    tbody.innerHTML = matchesTableData.map(match => `
+        <tr>
+            <td>
+                <span class="team-name" data-pot="${match.home_pot}" style="color: ${getPotColor(match.home_pot)};">
+                    ${match.home_team}
+                </span>
+            </td>
+            <td>${match.home_country}</td>
+            <td>
+                <span class="team-name" data-pot="${match.away_pot}" style="color: ${getPotColor(match.away_pot)};">
+                    ${match.away_team}
+                </span>
+            </td>
+            <td>${match.away_country}</td>
+            <td class="distance-cell">${match.distance.toLocaleString()} km</td>
+        </tr>
+    `).join('');
+}
+
+function initializeMatchesTableSorting() {
+    const headers = document.querySelectorAll('#matchesTable .sortable');
+    headers.forEach(header => {
+        header.addEventListener('click', () => {
+            const column = header.dataset.column;
+            sortMatchesTable(column);
+        });
+    });
+}
+
+function sortMatchesTable(column) {
+    const currentSort = document.querySelector('#matchesTable .sortable.sorted');
+    const isAscending = currentSort && currentSort.dataset.column === column &&
+                       currentSort.classList.contains('asc');
+
+    // Clear previous sort indicators
+    document.querySelectorAll('#matchesTable .sortable').forEach(header => {
+        header.classList.remove('sorted', 'asc', 'desc');
+    });
+
+    // Sort data
+    matchesTableData.sort((a, b) => {
+        let valueA = a[column];
+        let valueB = b[column];
+
+        // Handle different data types
+        if (typeof valueA === 'string') {
+            valueA = valueA.toLowerCase();
+            valueB = valueB.toLowerCase();
+        }
+
+        let comparison = 0;
+        if (valueA < valueB) comparison = -1;
+        else if (valueA > valueB) comparison = 1;
+
+        return isAscending ? -comparison : comparison;
+    });
+
+    // Update sort indicator
+    const header = document.querySelector(`#matchesTable .sortable[data-column="${column}"]`);
+    header.classList.add('sorted', isAscending ? 'desc' : 'asc');
+
+    renderMatchesTable();
+}
+
+function initializeMatchesCSVExport() {
+    const exportBtn = document.getElementById('exportMatchesCSV');
+    if (exportBtn) {
+        exportBtn.addEventListener('click', exportMatchesToCSV);
+    }
+}
+
+function exportMatchesToCSV() {
+    const headers = ['Home Team', 'Home Country', 'Away Team', 'Away Country', 'Distance (km)'];
+
+    const csvContent = [
+        headers.join(','),
+        ...matchesTableData.map(match => [
+            `"${match.home_team}"`,
+            `"${match.home_country}"`,
+            `"${match.away_team}"`,
+            `"${match.away_country}"`,
+            match.distance
+        ].join(','))
+    ].join('\n');
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+
+    if (link.download !== undefined) {
+        const url = URL.createObjectURL(blob);
+        link.setAttribute('href', url);
+        link.setAttribute('download', 'champions_league_matches.csv');
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+
 // Tab functionality
 function initializeTabs() {
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -686,6 +834,8 @@ function initializeTabs() {
             setTimeout(() => {
                 if (targetTab === 'table') {
                     initializeTable();
+                } else if (targetTab === 'fixtures') {
+                    initializeMatchesTable();
                 } else if ((targetTab === 'matches' || targetTab === 'interactive') && !mapsInitialized) {
                     initializeMaps();
                 }

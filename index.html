@@ -38,6 +38,7 @@
             <button class="tab-btn tab-btn--active" data-tab="matches">All Matches Overview</button>
             <button class="tab-btn" data-tab="interactive">Interactive Travel Analysis</button>
             <button class="tab-btn" data-tab="table">Travel Data Table</button>
+            <button class="tab-btn" data-tab="fixtures">Matches</button>
         </nav>
 
         <!-- Tab Content -->
@@ -151,6 +152,45 @@
                             </tr>
                         </thead>
                         <tbody id="tableBody">
+                            <!-- Table content will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Matches Tab -->
+            <div id="fixtures-tab" class="tab-panel">
+                <div class="table-info">
+                    <h3>All Matches</h3>
+                    <p>Complete list of all UEFA Champions League 2025-26 fixtures with travel distances. Click column headers to sort.</p>
+
+                    <div class="table-controls">
+                        <button id="exportMatchesCSV" class="btn btn--secondary btn--sm">Export CSV</button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="matchesTable" class="travel-table">
+                        <thead>
+                            <tr>
+                                <th class="sortable" data-column="home_team">
+                                    Home Team <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="home_country">
+                                    Country <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="away_team">
+                                    Away Team <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="away_country">
+                                    Country <span class="sort-indicator"></span>
+                                </th>
+                                <th class="sortable" data-column="distance">
+                                    Distance (km) <span class="sort-indicator"></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="matchesTableBody">
                             <!-- Table content will be populated by JavaScript -->
                         </tbody>
                     </table>
