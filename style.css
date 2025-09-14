@@ -1187,13 +1187,14 @@ select.form-control {
 }
 
 .team-label span {
-  background: var(--color-charcoal-800);
-  border: 1px solid var(--color-charcoal-700);
+  /* Background and border colors set inline via JavaScript */
   padding: var(--space-4) var(--space-8);
   border-radius: var(--radius-sm);
+  border: 1px solid;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-white);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   box-shadow: var(--shadow-md);
   white-space: nowrap;
   display: inline-block;
@@ -1201,18 +1202,20 @@ select.form-control {
 }
 
 .team-label--hovered span {
-  background: var(--color-primary);
+  background: var(--color-primary) !important;
   color: var(--color-white);
-  border-color: var(--color-primary);
+  border-color: var(--color-primary) !important;
   font-weight: var(--font-weight-semibold);
   transform: scale(1.05);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .team-label--opponent span {
-  background: var(--color-warning);
+  background: var(--color-warning) !important;
   color: var(--color-white);
-  border-color: var(--color-warning);
+  border-color: var(--color-warning) !important;
   font-weight: var(--font-weight-semibold);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* Responsive Design */

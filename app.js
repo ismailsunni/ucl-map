@@ -283,6 +283,24 @@ function drawMatchLine(fromStadium, toStadium, map, showDistance = false) {
     return line;
 }
 
+// Smart label positioning to avoid overlaps
+function getSmartLabelPosition(stadium, markerSize, allStadiums, index) {
+    const positions = [
+        [60, -markerSize - 8],    // top (default)
+        [60, markerSize + 20],    // bottom
+        [-10, -markerSize/2],     // left
+        [130, -markerSize/2],     // right
+        [95, -markerSize - 8],    // top-right
+        [25, -markerSize - 8],    // top-left
+        [95, markerSize + 20],    // bottom-right
+        [25, markerSize + 20]     // bottom-left
+    ];
+
+    // Use index to cycle through positions for nearby stadiums
+    const positionIndex = index % positions.length;
+    return positions[positionIndex];
+}
+
 // Interactive map (Tab 2)
 function loadInteractiveMap() {
     if (!interactiveMap) return;
@@ -291,13 +309,14 @@ function loadInteractiveMap() {
     interactiveMarkers.clear();
     teamLabels.clear();
 
-    stadiumData.forEach(stadium => {
+    stadiumData.forEach((stadium, index) => {
         const stats = getTeamTravelStats(stadium.team);
         const markerSize = getMarkerSize(stats.total_travel);
+        const potColor = getPotColor(stadium.pot);
 
         const marker = L.circleMarker([stadium.latitude, stadium.longitude], {
             radius: markerSize,
-            fillColor: getPotColor(stadium.pot),
+            fillColor: potColor,
             color: '#fff',
             weight: 2,
             opacity: 1,
@@ -309,12 +328,13 @@ function loadInteractiveMap() {
             className: 'custom-popup'
         });
 
-        // Create team label (but don't add to map yet)
+        // Create team label with pot color and smart positioning
+        const labelPosition = getSmartLabelPosition(stadium, markerSize, stadiumData, index);
         const labelIcon = L.divIcon({
             className: 'team-label',
-            html: `<span>${stadium.team}</span>`,
+            html: `<span data-pot="${stadium.pot}" style="background-color: ${potColor}; border-color: ${potColor};">${stadium.team}</span>`,
             iconSize: [120, 16],
-            iconAnchor: [60, -markerSize - 8]
+            iconAnchor: labelPosition
         });
 
         const labelMarker = L.marker([stadium.latitude, stadium.longitude], {
