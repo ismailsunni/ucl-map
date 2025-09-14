@@ -107,10 +107,10 @@ function getTeamTravelStats(teamName) {
 
 function getPotColor(pot) {
     const colors = {
-        1: '#dc2626', // red
-        2: '#2563eb', // blue
-        3: '#16a34a', // green
-        4: '#ea580c'  // orange
+        1: '#FFD700', // gold - strongest teams
+        2: '#4A90E2', // silver/blue - strong teams
+        3: '#FF8C42', // bronze/orange - mid-tier teams
+        4: '#6B7280'  // gray - underdogs
     };
     return colors[pot] || '#6b7280';
 }
