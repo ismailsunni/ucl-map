@@ -32,6 +32,8 @@ async function loadData() {
 let matchesMap, interactiveMap;
 let currentHoveredTeam = null;
 let hoverLines = [];
+let teamLabels = new Map();
+let highlightedLabels = [];
 let matchesMarkers = new Map();
 let interactiveMarkers = new Map();
 let allMatchLines = [];
@@ -284,14 +286,15 @@ function drawMatchLine(fromStadium, toStadium, map, showDistance = false) {
 // Interactive map (Tab 2)
 function loadInteractiveMap() {
     if (!interactiveMap) return;
-    
-    // Clear existing markers
+
+    // Clear existing markers and labels
     interactiveMarkers.clear();
-    
+    teamLabels.clear();
+
     stadiumData.forEach(stadium => {
         const stats = getTeamTravelStats(stadium.team);
         const markerSize = getMarkerSize(stats.total_travel);
-        
+
         const marker = L.circleMarker([stadium.latitude, stadium.longitude], {
             radius: markerSize,
             fillColor: getPotColor(stadium.pot),
@@ -305,7 +308,19 @@ function loadInteractiveMap() {
             maxWidth: 300,
             className: 'custom-popup'
         });
-        
+
+        // Add team label
+        const labelIcon = L.divIcon({
+            className: 'team-label',
+            html: `<span>${stadium.team}</span>`,
+            iconSize: [120, 16],
+            iconAnchor: [60, -markerSize - 8]
+        });
+
+        const labelMarker = L.marker([stadium.latitude, stadium.longitude], {
+            icon: labelIcon
+        }).addTo(interactiveMap);
+
         // Add hover events
         marker.on('mouseover', function() {
             showTravelLines(stadium.team);
@@ -316,19 +331,28 @@ function loadInteractiveMap() {
         });
 
         interactiveMarkers.set(stadium.team, marker);
+        teamLabels.set(stadium.team, labelMarker);
     });
 }
 
 function showTravelLines(teamName) {
     if (currentHoveredTeam === teamName || !interactiveMap) return;
-    
+
     hideTravelLines();
     currentHoveredTeam = teamName;
-    
+
     const teamData = matchData.find(match => match.home_team === teamName);
     const homeStadium = getStadiumByTeam(teamName);
-    
+
     if (!teamData || !homeStadium) return;
+
+    // Highlight the hovered team's label
+    const hoveredLabel = teamLabels.get(teamName);
+    if (hoveredLabel) {
+        hoveredLabel.getElement().querySelector('.team-label span').classList.add('team-label--hovered');
+    }
+
+    const opponentTeams = [];
 
     // Draw green lines for home matches (teams coming to this stadium)
     teamData.away_matches.forEach(visitingTeamData => {
@@ -336,6 +360,7 @@ function showTravelLines(teamName) {
         if (visitingStadium) {
             const lineData = drawTravelLine(visitingStadium, homeStadium, '#16a34a', 'home');
             if (lineData) hoverLines.push(lineData);
+            opponentTeams.push(visitingTeamData.team);
         }
     });
 
@@ -345,6 +370,16 @@ function showTravelLines(teamName) {
         if (hostStadium) {
             const lineData = drawTravelLine(homeStadium, hostStadium, '#dc2626', 'away');
             if (lineData) hoverLines.push(lineData);
+            opponentTeams.push(hostTeamData.team);
+        }
+    });
+
+    // Highlight opponent team labels
+    opponentTeams.forEach(opponentTeam => {
+        const opponentLabel = teamLabels.get(opponentTeam);
+        if (opponentLabel) {
+            opponentLabel.getElement().querySelector('.team-label span').classList.add('team-label--opponent');
+            highlightedLabels.push(opponentLabel);
         }
     });
 }
@@ -380,7 +415,8 @@ function drawTravelLine(fromStadium, toStadium, color, type) {
 
 function hideTravelLines() {
     if (!interactiveMap) return;
-    
+
+    // Clear travel lines and distance labels
     hoverLines.forEach(item => {
         if (item.line && interactiveMap.hasLayer(item.line)) {
             interactiveMap.removeLayer(item.line);
@@ -390,6 +426,24 @@ function hideTravelLines() {
         }
     });
     hoverLines = [];
+
+    // Clear label highlights
+    if (currentHoveredTeam) {
+        const hoveredLabel = teamLabels.get(currentHoveredTeam);
+        if (hoveredLabel && hoveredLabel.getElement()) {
+            const span = hoveredLabel.getElement().querySelector('.team-label span');
+            if (span) span.classList.remove('team-label--hovered');
+        }
+    }
+
+    highlightedLabels.forEach(label => {
+        if (label && label.getElement()) {
+            const span = label.getElement().querySelector('.team-label span');
+            if (span) span.classList.remove('team-label--opponent');
+        }
+    });
+    highlightedLabels = [];
+
     currentHoveredTeam = null;
 }
 
