@@ -655,6 +655,11 @@
       {
         "team": "Slavia Prague",
         "distance": 648
+      },
+      {
+        "team": "Kairat",
+        "distance": 5227,
+        "matchday": 4
       }
     ]
   },
@@ -711,6 +716,11 @@
       {
         "team": "Sporting CP",
         "distance": 6902
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 5227,
+        "matchday": 4
       }
     ],
     "home_matches": [

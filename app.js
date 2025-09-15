@@ -507,7 +507,7 @@ function loadTable() {
     
     tbody.innerHTML = '';
     
-    tableData.forEach(stadium => {
+    tableData.forEach((stadium, index) => {
         const row = document.createElement('tr');
         const stats = getTeamTravelStats(stadium.team);
 
@@ -515,6 +515,7 @@ function loadTable() {
                               stats.travel_difference < 0 ? 'travel-negative' : 'travel-neutral';
 
         row.innerHTML = `
+            <td class="no-cell">${index + 1}</td>
             <td>
                 <span class="pot-indicator" style="background-color: ${getPotColor(stadium.pot)};"></span>
                 ${stadium.team}
@@ -619,16 +620,17 @@ function initializeCSVExport() {
 
 function exportToCSV() {
     const headers = [
-        'Team', 'City', 'Country', 'Pot', 'Total Travel (km)', 'Guest Travel (km)', 
+        'No.', 'Team', 'City', 'Country', 'Pot', 'Total Travel (km)', 'Guest Travel (km)',
         'Travel Difference', 'Shortest Trip Distance', 'Shortest Trip Opponent',
         'Longest Trip Distance', 'Longest Trip Opponent'
     ];
-    
+
     const csvContent = [
         headers.join(','),
-        ...tableData.map(stadium => {
+        ...tableData.map((stadium, index) => {
             const stats = getTeamTravelStats(stadium.team);
             return [
+                index + 1,
                 `"${stadium.team}"`,
                 `"${stadium.city}"`,
                 `"${stadium.country}"`,
@@ -707,8 +709,9 @@ function renderMatchesTable() {
     const tbody = document.getElementById('matchesTableBody');
     if (!tbody) return;
 
-    tbody.innerHTML = matchesTableData.map(match => `
+    tbody.innerHTML = matchesTableData.map((match, index) => `
         <tr>
+            <td class="no-cell">${index + 1}</td>
             <td>
                 <span class="pot-indicator" style="background-color: ${getPotColor(match.home_pot)};"></span>
                 ${match.home_team}
@@ -777,11 +780,12 @@ function initializeMatchesCSVExport() {
 }
 
 function exportMatchesToCSV() {
-    const headers = ['Home Team', 'Home Country', 'Away Team', 'Away Country', 'Distance (km)'];
+    const headers = ['No.', 'Home Team', 'Home Country', 'Away Team', 'Away Country', 'Distance (km)'];
 
     const csvContent = [
         headers.join(','),
-        ...matchesTableData.map(match => [
+        ...matchesTableData.map((match, index) => [
+            index + 1,
             `"${match.home_team}"`,
             `"${match.home_country}"`,
             `"${match.away_team}"`,

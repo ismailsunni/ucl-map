@@ -1027,6 +1027,24 @@ select.form-control {
   background: var(--color-bg-1);
 }
 
+/* Number column styles */
+.travel-table th.no-column,
+.travel-table td.no-cell {
+  width: 60px;
+  text-align: center;
+  font-weight: var(--font-weight-semibold);
+}
+
+.travel-table th.no-column {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.travel-table td.no-cell {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
 .sort-indicator {
   position: absolute;
   right: var(--space-4);
