@@ -1098,18 +1098,28 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Initialize content based on default active tab
     const activeTab = document.querySelector('.tab-panel--active');
     console.log('Initial active tab:', activeTab ? activeTab.id : 'none');
-    
+
     if (activeTab && activeTab.id === 'matches-tab') {
         initializeMaps();
-        calculateTravelInsights();
+        // Small delay to ensure maps are initialized before calculating insights
+        setTimeout(() => {
+            calculateTravelInsights();
+        }, 100);
     } else if (activeTab && activeTab.id === 'table-tab') {
         initializeTable();
     }
+
+    // Hide loading indicator
+    hideLoading();
 });
 
 // Travel Insights functionality
 function calculateTravelInsights() {
-    if (!stadiumData.length || !matchData.length) return;
+    console.log('calculateTravelInsights called - stadiumData length:', stadiumData.length, 'matchData length:', matchData.length);
+    if (!stadiumData.length || !matchData.length) {
+        console.log('Early return - data not loaded');
+        return;
+    }
 
     // Calculate all matches with distances
     const allMatches = [];
@@ -1171,6 +1181,15 @@ function calculateTravelInsights() {
     const mostDisadvantaged = teamStats.reduce((min, team) =>
         team.travelDifference > min.travelDifference ? team : min);
 
+    console.log('Travel insights calculated:', {
+        allMatches: allMatches.length,
+        teamStats: teamStats.length,
+        longestMatch,
+        shortestMatch,
+        longestTotalTravel,
+        shortestTotalTravel
+    });
+
     // Update the UI
     updateInsightValue('longest-match-travel',
         `${longestMatch.distance.toLocaleString()} km`,
@@ -1206,11 +1225,15 @@ function calculateTravelInsights() {
 }
 
 function updateInsightValue(elementId, distance, teams) {
+    console.log('updateInsightValue called:', elementId, distance, teams);
     const element = document.getElementById(elementId);
     if (element) {
         const distanceSpan = element.querySelector('.distance');
         const teamsSpan = element.querySelector('.teams');
         if (distanceSpan) distanceSpan.textContent = distance;
         if (teamsSpan) teamsSpan.textContent = teams;
+        console.log('Updated element:', elementId, 'with values:', distance, teams);
+    } else {
+        console.log('Element not found:', elementId);
     }
 }
