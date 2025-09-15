@@ -913,7 +913,9 @@ function initializeTabs() {
 
                 // Calculate insights for matches tab
                 if (targetTab === 'matches') {
-                    calculateTravelInsights();
+                    setTimeout(() => {
+                        calculateTravelInsights();
+                    }, 100);
                 }
                 
                 // Trigger map resize
@@ -1111,6 +1113,13 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Hide loading indicator
     hideLoading();
+
+    // Force calculate insights if on matches tab (fallback)
+    setTimeout(() => {
+        if (document.querySelector('.tab-panel--active')?.id === 'matches-tab') {
+            calculateTravelInsights();
+        }
+    }, 1000);
 });
 
 // Travel Insights functionality
@@ -1225,15 +1234,13 @@ function calculateTravelInsights() {
 }
 
 function updateInsightValue(elementId, distance, teams) {
-    console.log('updateInsightValue called:', elementId, distance, teams);
     const element = document.getElementById(elementId);
     if (element) {
         const distanceSpan = element.querySelector('.distance');
         const teamsSpan = element.querySelector('.teams');
         if (distanceSpan) distanceSpan.textContent = distance;
         if (teamsSpan) teamsSpan.textContent = teams;
-        console.log('Updated element:', elementId, 'with values:', distance, teams);
     } else {
-        console.log('Element not found:', elementId);
+        console.log('Element not found for insights:', elementId);
     }
 }
