@@ -1267,6 +1267,7 @@ select.form-control {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
+
 /* Team names in matches table */
 .team-name {
   font-weight: var(--font-weight-semibold);

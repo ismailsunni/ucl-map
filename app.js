@@ -399,21 +399,25 @@ function showTravelLines(teamName, isSelected = false) {
 
     const opponentTeams = [];
 
-    // Draw green lines for home matches (teams coming to this stadium)
+    // Draw lines for home matches (teams coming to this stadium)
     teamData.away_matches.forEach(visitingTeamData => {
         const visitingStadium = getStadiumByTeam(visitingTeamData.team);
         if (visitingStadium) {
-            const lineData = drawTravelLine(visitingStadium, homeStadium, '#16a34a', 'home', visitingTeamData.team);
+            // Use the visiting team's (opponent's) pot color
+            const opponentPotColor = getPotColor(visitingStadium.pot);
+            const lineData = drawTravelLine(visitingStadium, homeStadium, opponentPotColor, 'home', visitingTeamData.team);
             if (lineData) hoverLines.push(lineData);
             opponentTeams.push(visitingTeamData.team);
         }
     });
 
-    // Draw red lines for away matches (this team traveling)
+    // Draw lines for away matches (this team traveling)
     teamData.home_matches.forEach(hostTeamData => {
         const hostStadium = getStadiumByTeam(hostTeamData.team);
         if (hostStadium) {
-            const lineData = drawTravelLine(homeStadium, hostStadium, '#dc2626', 'away', hostTeamData.team);
+            // Use the host team's (opponent's) pot color
+            const opponentPotColor = getPotColor(hostStadium.pot);
+            const lineData = drawTravelLine(homeStadium, hostStadium, opponentPotColor, 'away', hostTeamData.team);
             if (lineData) hoverLines.push(lineData);
             opponentTeams.push(hostTeamData.team);
         }
@@ -441,11 +445,13 @@ function drawTravelLine(fromStadium, toStadium, color, type, opponentTeam) {
     const to = [toStadium.latitude, toStadium.longitude];
     const distance = haversineDistance(from[0], from[1], to[0], to[1]);
 
+
     const line = L.polyline([from, to], {
         color: color,
         weight: 3,
         opacity: 0.8
     }).addTo(interactiveMap);
+
 
     // Add distance label with opponent's pot color
     const midLat = (from[0] + to[0]) / 2;
