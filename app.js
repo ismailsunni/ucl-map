@@ -31,6 +31,7 @@ async function loadData() {
 // Global variables
 let matchesMap, interactiveMap;
 let currentHoveredTeam = null;
+let currentSelectedTeam = null;
 let hoverLines = [];
 let teamLabels = new Map();
 let highlightedLabels = [];
@@ -343,11 +344,30 @@ function loadInteractiveMap() {
 
         // Add hover events
         marker.on('mouseover', function() {
-            showTravelLines(stadium.team);
+            if (!currentSelectedTeam) {
+                showTravelLines(stadium.team);
+            }
         });
 
         marker.on('mouseout', function() {
-            hideTravelLines();
+            if (!currentSelectedTeam) {
+                hideTravelLines();
+            }
+        });
+
+        // Add click event to select/deselect team
+        marker.on('click', function() {
+            if (currentSelectedTeam === stadium.team) {
+                // Deselect current team
+                currentSelectedTeam = null;
+                hideTravelLines();
+                resetMarkerStyles();
+            } else {
+                // Select new team
+                currentSelectedTeam = stadium.team;
+                showTravelLines(stadium.team, true);
+                highlightSelectedMarker(stadium.team);
+            }
         });
 
         interactiveMarkers.set(stadium.team, marker);
@@ -355,8 +375,8 @@ function loadInteractiveMap() {
     });
 }
 
-function showTravelLines(teamName) {
-    if (currentHoveredTeam === teamName || !interactiveMap) return;
+function showTravelLines(teamName, isSelected = false) {
+    if ((currentHoveredTeam === teamName && !isSelected) || !interactiveMap) return;
 
     hideTravelLines();
     currentHoveredTeam = teamName;
@@ -489,6 +509,42 @@ function hideTravelLines() {
     highlightedLabels = [];
 
     currentHoveredTeam = null;
+}
+
+function highlightSelectedMarker(teamName) {
+    // Reset all markers to default style first
+    resetMarkerStyles();
+
+    // Highlight the selected marker
+    const selectedMarker = interactiveMarkers.get(teamName);
+    if (selectedMarker) {
+        selectedMarker.setStyle({
+            weight: 4,
+            color: '#fbbf24',
+            fillOpacity: 1.0
+        });
+    }
+}
+
+function resetMarkerStyles() {
+    // Reset all markers to their default styles
+    interactiveMarkers.forEach((marker, teamName) => {
+        const stadium = stadiumData.find(s => s.team === teamName);
+        if (stadium) {
+            const stats = getTeamTravelStats(stadium.team);
+            const markerSize = getMarkerSize(stats.total_travel);
+            const potColor = getPotColor(stadium.pot);
+
+            marker.setStyle({
+                radius: markerSize,
+                fillColor: potColor,
+                color: '#fff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.7
+            });
+        }
+    });
 }
 
 // Table functionality (Tab 3)
@@ -820,10 +876,17 @@ function initializeTabs() {
             
             console.log('Tab clicked:', targetTab); // Debug log
             
+            // Clear interactive map selection when switching away from interactive tab
+            if (targetTab !== 'interactive' && currentSelectedTeam) {
+                currentSelectedTeam = null;
+                hideTravelLines();
+                resetMarkerStyles();
+            }
+
             // Update active tab button
             tabButtons.forEach(btn => btn.classList.remove('tab-btn--active'));
             button.classList.add('tab-btn--active');
-            
+
             // Update active tab panel
             tabPanels.forEach(panel => panel.classList.remove('tab-panel--active'));
             const targetPanel = document.getElementById(`${targetTab}-tab`);
