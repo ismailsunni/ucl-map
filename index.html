@@ -36,10 +36,100 @@
         <div class="tab-content">
             <!-- All Matches Tab -->
             <div id="matches-tab" class="tab-panel tab-panel--active">
-                <div class="map-info">
+                <!-- <div class="map-info">
                     <h3>All Matches Overview</h3>
                     <p>Explore all stadium locations and match connections with directional arrows showing travel patterns.</p>
+                </div> -->
+
+                <!-- Travel Insights Section -->
+                <div class="map-infon">
+                    <div class="insights-header">
+                        <h3>Travel Insights</h3>
+                        <p>Key statistics about team travel patterns and distances</p>
+                    </div>
+                    <div class="insights-grid">
+                        <div class="insight-category">
+                            <h4>Single Match Travel</h4>
+                            <div class="insight-items">
+                                <div class="insight-item">
+                                    <div class="insight-label">Longest</div>
+                                    <div class="insight-value" id="longest-match-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-label">Shortest</div>
+                                    <div class="insight-value" id="shortest-match-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="insight-category">
+                            <h4>Total Team Travel</h4>
+                            <div class="insight-items">
+                                <div class="insight-item">
+                                    <div class="insight-label">Longest</div>
+                                    <div class="insight-value" id="longest-total-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-label">Shortest</div>
+                                    <div class="insight-value" id="shortest-total-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="insight-category">
+                            <h4>Guest Total Travel</h4>
+                            <div class="insight-items">
+                                <div class="insight-item">
+                                    <div class="insight-label">Longest</div>
+                                    <div class="insight-value" id="longest-guest-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-label">Shortest</div>
+                                    <div class="insight-value" id="shortest-guest-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="insight-category">
+                            <h4>Travel Difference</h4>
+                            <div class="insight-items">
+                                <div class="insight-item">
+                                    <div class="insight-label">Most Advantaged</div>
+                                    <div class="insight-value" id="most-advantaged-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-label">Most Disadvantaged</div>
+                                    <div class="insight-value" id="most-disadvantaged-travel">
+                                        <span class="distance">-</span>
+                                        <span class="teams">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="map-legends">
                     <div class="legend">
                         <h4>Team Pots</h4>
@@ -281,5 +371,6 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="app.js"></script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="a4e2f8be-91ae-48a3-a1ba-0b50d7485e05"></script>
 </body>
 </html>

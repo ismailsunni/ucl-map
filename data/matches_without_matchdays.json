@@ -1,0 +1,1398 @@
+[
+  {
+    "home_team": "Ajax",
+    "away_matches": [
+      {
+        "team": "Chelsea",
+        "distance": 364
+      },
+      {
+        "team": "Marseille",
+        "distance": 1006
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 3626
+      },
+      {
+        "team": "Villarreal",
+        "distance": 1429
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Benfica",
+        "distance": 1860
+      },
+      {
+        "team": "Galatasaray",
+        "distance": 2201
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 819
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 2157
+      }
+    ]
+  },
+  {
+    "home_team": "Arsenal",
+    "away_matches": [
+      {
+        "team": "Athletic Bilbao",
+        "distance": 946
+      },
+      {
+        "team": "Club Brugge",
+        "distance": 232
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 957
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 1036
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 1265
+      },
+      {
+        "team": "Bayern Munich",
+        "distance": 917
+      },
+      {
+        "team": "Kairat",
+        "distance": 5593
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 2392
+      }
+    ]
+  },
+  {
+    "home_team": "Atalanta",
+    "away_matches": [
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 491
+      },
+      {
+        "team": "Marseille",
+        "distance": 435
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 659
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 691
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Athletic Bilbao",
+        "distance": 1037
+      },
+      {
+        "team": "Chelsea",
+        "distance": 968
+      },
+      {
+        "team": "Club Brugge",
+        "distance": 775
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 602
+      }
+    ]
+  },
+  {
+    "home_team": "Athletic Bilbao",
+    "away_matches": [
+      {
+        "team": "Atalanta",
+        "distance": 1037
+      },
+      {
+        "team": "Borussia Dortmund",
+        "distance": 1202
+      },
+      {
+        "team": "Newcastle United",
+        "distance": 1306
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 1524
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Arsenal",
+        "distance": 946
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 738
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 4317
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 722
+      }
+    ]
+  },
+  {
+    "home_team": "Atl\u00e9tico Madrid",
+    "away_matches": [
+      {
+        "team": "Arsenal",
+        "distance": 1265
+      },
+      {
+        "team": "Galatasaray",
+        "distance": 2730
+      },
+      {
+        "team": "Liverpool",
+        "distance": 1446
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 1408
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 3183
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 1434
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 1176
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 1308
+      }
+    ]
+  },
+  {
+    "home_team": "Barcelona",
+    "away_matches": [
+      {
+        "team": "Chelsea",
+        "distance": 1139
+      },
+      {
+        "team": "Club Brugge",
+        "distance": 1096
+      },
+      {
+        "team": "Newcastle United",
+        "distance": 1539
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 1357
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Copenhagen",
+        "distance": 1765
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 1090
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 1875
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 831
+      }
+    ]
+  },
+  {
+    "home_team": "Bayer Leverkusen",
+    "away_matches": [
+      {
+        "team": "Benfica",
+        "distance": 1861
+      },
+      {
+        "team": "Copenhagen",
+        "distance": 636
+      },
+      {
+        "team": "Manchester City",
+        "distance": 682
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 1957
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Newcastle United",
+        "distance": 723
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 116
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 418
+      },
+      {
+        "team": "Villarreal",
+        "distance": 1351
+      }
+    ]
+  },
+  {
+    "home_team": "Bayern Munich",
+    "away_matches": [
+      {
+        "team": "Arsenal",
+        "distance": 917
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 568
+      },
+      {
+        "team": "Pafos",
+        "distance": 2282
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 693
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Chelsea",
+        "distance": 920
+      },
+      {
+        "team": "Club Brugge",
+        "distance": 691
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 1970
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 599
+      }
+    ]
+  },
+  {
+    "home_team": "Benfica",
+    "away_matches": [
+      {
+        "team": "Ajax",
+        "distance": 1860
+      },
+      {
+        "team": "Chelsea",
+        "distance": 1579
+      },
+      {
+        "team": "Juventus",
+        "distance": 1557
+      },
+      {
+        "team": "Newcastle United",
+        "distance": 1891
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 1861
+      },
+      {
+        "team": "Napoli",
+        "distance": 2005
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 4971
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 507
+      }
+    ]
+  },
+  {
+    "home_team": "Bod\u00f8/Glimt",
+    "away_matches": [
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 3183
+      },
+      {
+        "team": "Borussia Dortmund",
+        "distance": 1798
+      },
+      {
+        "team": "Galatasaray",
+        "distance": 3044
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 1915
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Juventus",
+        "distance": 2498
+      },
+      {
+        "team": "Manchester City",
+        "distance": 1773
+      },
+      {
+        "team": "Monaco",
+        "distance": 2653
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 1915
+      }
+    ]
+  },
+  {
+    "home_team": "Borussia Dortmund",
+    "away_matches": [
+      {
+        "team": "Copenhagen",
+        "distance": 577
+      },
+      {
+        "team": "Juventus",
+        "distance": 710
+      },
+      {
+        "team": "Manchester City",
+        "distance": 689
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 520
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Athletic Bilbao",
+        "distance": 1202
+      },
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 1798
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 680
+      },
+      {
+        "team": "Villarreal",
+        "distance": 1410
+      }
+    ]
+  },
+  {
+    "home_team": "Chelsea",
+    "away_matches": [
+      {
+        "team": "Atalanta",
+        "distance": 968
+      },
+      {
+        "team": "Bayern Munich",
+        "distance": 920
+      },
+      {
+        "team": "Napoli",
+        "distance": 1616
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 3977
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Ajax",
+        "distance": 364
+      },
+      {
+        "team": "Barcelona",
+        "distance": 1139
+      },
+      {
+        "team": "Benfica",
+        "distance": 1579
+      },
+      {
+        "team": "Pafos",
+        "distance": 3198
+      }
+    ]
+  },
+  {
+    "home_team": "Club Brugge",
+    "away_matches": [
+      {
+        "team": "Atalanta",
+        "distance": 775
+      },
+      {
+        "team": "Bayern Munich",
+        "distance": 691
+      },
+      {
+        "team": "Kairat",
+        "distance": 5396
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 1685
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Arsenal",
+        "distance": 232
+      },
+      {
+        "team": "Barcelona",
+        "distance": 1096
+      },
+      {
+        "team": "Marseille",
+        "distance": 897
+      },
+      {
+        "team": "Monaco",
+        "distance": 889
+      }
+    ]
+  },
+  {
+    "home_team": "Copenhagen",
+    "away_matches": [
+      {
+        "team": "Barcelona",
+        "distance": 1765
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 3197
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 947
+      },
+      {
+        "team": "Villarreal",
+        "distance": 1984
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 636
+      },
+      {
+        "team": "Borussia Dortmund",
+        "distance": 577
+      },
+      {
+        "team": "Kairat",
+        "distance": 4661
+      },
+      {
+        "team": "Napoli",
+        "distance": 1658
+      }
+    ]
+  },
+  {
+    "home_team": "Eintracht Frankfurt",
+    "away_matches": [
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 1434
+      },
+      {
+        "team": "Barcelona",
+        "distance": 1090
+      },
+      {
+        "team": "Napoli",
+        "distance": 1114
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 3355
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Atalanta",
+        "distance": 491
+      },
+      {
+        "team": "Galatasaray",
+        "distance": 1862
+      },
+      {
+        "team": "Liverpool",
+        "distance": 881
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 635
+      }
+    ]
+  },
+  {
+    "home_team": "Galatasaray",
+    "away_matches": [
+      {
+        "team": "Ajax",
+        "distance": 2201
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 1862
+      },
+      {
+        "team": "Manchester City",
+        "distance": 2694
+      },
+      {
+        "team": "Monaco",
+        "distance": 1790
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 2730
+      },
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 3044
+      },
+      {
+        "team": "Liverpool",
+        "distance": 2740
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 2175
+      }
+    ]
+  },
+  {
+    "home_team": "Inter Milan",
+    "away_matches": [
+      {
+        "team": "Ajax",
+        "distance": 819
+      },
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 1176
+      },
+      {
+        "team": "Borussia Dortmund",
+        "distance": 680
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 691
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Arsenal",
+        "distance": 957
+      },
+      {
+        "team": "Liverpool",
+        "distance": 1240
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 648
+      }
+    ]
+  },
+  {
+    "home_team": "Juventus",
+    "away_matches": [
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 2498
+      },
+      {
+        "team": "Monaco",
+        "distance": 155
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 1058
+      },
+      {
+        "team": "Villarreal",
+        "distance": 855
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Benfica",
+        "distance": 1557
+      },
+      {
+        "team": "Borussia Dortmund",
+        "distance": 710
+      },
+      {
+        "team": "Pafos",
+        "distance": 2396
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 1555
+      }
+    ]
+  },
+  {
+    "home_team": "Kairat",
+    "away_matches": [
+      {
+        "team": "Arsenal",
+        "distance": 5593
+      },
+      {
+        "team": "Copenhagen",
+        "distance": 4661
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 6902
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Club Brugge",
+        "distance": 5396
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 4453
+      },
+      {
+        "team": "Pafos",
+        "distance": 3910
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 6407
+      }
+    ]
+  },
+  {
+    "home_team": "Liverpool",
+    "away_matches": [
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 881
+      },
+      {
+        "team": "Galatasaray",
+        "distance": 2740
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 1240
+      },
+      {
+        "team": "Marseille",
+        "distance": 1286
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 1446
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 612
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 4157
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 1444
+      }
+    ]
+  },
+  {
+    "home_team": "Manchester City",
+    "away_matches": [
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 1773
+      },
+      {
+        "team": "Monaco",
+        "distance": 1292
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 1453
+      },
+      {
+        "team": "Villarreal",
+        "distance": 1514
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 682
+      },
+      {
+        "team": "Borussia Dortmund",
+        "distance": 689
+      },
+      {
+        "team": "Galatasaray",
+        "distance": 2694
+      },
+      {
+        "team": "Napoli",
+        "distance": 1866
+      }
+    ]
+  },
+  {
+    "home_team": "Marseille",
+    "away_matches": [
+      {
+        "team": "Club Brugge",
+        "distance": 897
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 814
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 1318
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 843
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Ajax",
+        "distance": 1006
+      },
+      {
+        "team": "Atalanta",
+        "distance": 435
+      },
+      {
+        "team": "Liverpool",
+        "distance": 1286
+      },
+      {
+        "team": "Newcastle United",
+        "distance": 1397
+      }
+    ]
+  },
+  {
+    "home_team": "Monaco",
+    "away_matches": [
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 2653
+      },
+      {
+        "team": "Club Brugge",
+        "distance": 889
+      },
+      {
+        "team": "Pafos",
+        "distance": 2365
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 985
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Galatasaray",
+        "distance": 1790
+      },
+      {
+        "team": "Juventus",
+        "distance": 155
+      },
+      {
+        "team": "Manchester City",
+        "distance": 1292
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 1038
+      }
+    ]
+  },
+  {
+    "home_team": "Napoli",
+    "away_matches": [
+      {
+        "team": "Benfica",
+        "distance": 2005
+      },
+      {
+        "team": "Copenhagen",
+        "distance": 1658
+      },
+      {
+        "team": "Manchester City",
+        "distance": 1866
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 1356
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Chelsea",
+        "distance": 1616
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 1114
+      },
+      {
+        "team": "Qaraba\u011f",
+        "distance": 2994
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 2002
+      }
+    ]
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_matches": [
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 723
+      },
+      {
+        "team": "Marseille",
+        "distance": 1397
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 732
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 611
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Athletic Bilbao",
+        "distance": 1306
+      },
+      {
+        "team": "Barcelona",
+        "distance": 1539
+      },
+      {
+        "team": "Benfica",
+        "distance": 1891
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 614
+      }
+    ]
+  },
+  {
+    "home_team": "Olympiacos",
+    "away_matches": [
+      {
+        "team": "Ajax",
+        "distance": 2157
+      },
+      {
+        "team": "Arsenal",
+        "distance": 2392
+      },
+      {
+        "team": "Barcelona",
+        "distance": 1875
+      },
+      {
+        "team": "Kairat",
+        "distance": 4453
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 1957
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 2067
+      },
+      {
+        "team": "Pafos",
+        "distance": 863
+      },
+      {
+        "team": "Real Madrid",
+        "distance": 2364
+      }
+    ]
+  },
+  {
+    "home_team": "PSV Eindhoven",
+    "away_matches": [
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 116
+      },
+      {
+        "team": "Liverpool",
+        "distance": 612
+      },
+      {
+        "team": "Newcastle United",
+        "distance": 614
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 2067
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 1408
+      },
+      {
+        "team": "Bayern Munich",
+        "distance": 568
+      },
+      {
+        "team": "Napoli",
+        "distance": 1356
+      },
+      {
+        "team": "Union Saint-Gilloise",
+        "distance": 104
+      }
+    ]
+  },
+  {
+    "home_team": "Pafos",
+    "away_matches": [
+      {
+        "team": "Chelsea",
+        "distance": 3198
+      },
+      {
+        "team": "Juventus",
+        "distance": 2396
+      },
+      {
+        "team": "Kairat",
+        "distance": 3910
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 863
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Bayern Munich",
+        "distance": 2282
+      },
+      {
+        "team": "Monaco",
+        "distance": 2365
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 2246
+      },
+      {
+        "team": "Villarreal",
+        "distance": 2918
+      }
+    ]
+  },
+  {
+    "home_team": "Paris Saint-Germain",
+    "away_matches": [
+      {
+        "team": "Athletic Bilbao",
+        "distance": 738
+      },
+      {
+        "team": "Barcelona",
+        "distance": 831
+      },
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 418
+      },
+      {
+        "team": "Sporting CP",
+        "distance": 1444
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Atalanta",
+        "distance": 659
+      },
+      {
+        "team": "Bayern Munich",
+        "distance": 693
+      },
+      {
+        "team": "Newcastle United",
+        "distance": 732
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 349
+      }
+    ]
+  },
+  {
+    "home_team": "Qaraba\u011f",
+    "away_matches": [
+      {
+        "team": "Athletic Bilbao",
+        "distance": 4317
+      },
+      {
+        "team": "Benfica",
+        "distance": 4971
+      },
+      {
+        "team": "Liverpool",
+        "distance": 4157
+      },
+      {
+        "team": "Napoli",
+        "distance": 2994
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Ajax",
+        "distance": 3626
+      },
+      {
+        "team": "Chelsea",
+        "distance": 3977
+      },
+      {
+        "team": "Copenhagen",
+        "distance": 3197
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 3355
+      }
+    ]
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_matches": [
+      {
+        "team": "Benfica",
+        "distance": 507
+      },
+      {
+        "team": "Kairat",
+        "distance": 6407
+      },
+      {
+        "team": "Liverpool",
+        "distance": 1444
+      },
+      {
+        "team": "Olympiacos",
+        "distance": 2364
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Juventus",
+        "distance": 1058
+      },
+      {
+        "team": "Manchester City",
+        "distance": 1453
+      },
+      {
+        "team": "Marseille",
+        "distance": 814
+      },
+      {
+        "team": "Monaco",
+        "distance": 985
+      }
+    ]
+  },
+  {
+    "home_team": "Slavia Prague",
+    "away_matches": [
+      {
+        "team": "Atalanta",
+        "distance": 602
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 648
+      },
+      {
+        "team": "Pafos",
+        "distance": 2246
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 1033
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Arsenal",
+        "distance": 1036
+      },
+      {
+        "team": "Athletic Bilbao",
+        "distance": 1524
+      },
+      {
+        "team": "Barcelona",
+        "distance": 1357
+      },
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 1915
+      }
+    ]
+  },
+  {
+    "home_team": "Sporting CP",
+    "away_matches": [
+      {
+        "team": "Athletic Bilbao",
+        "distance": 722
+      },
+      {
+        "team": "Bayern Munich",
+        "distance": 1970
+      },
+      {
+        "team": "Juventus",
+        "distance": 1555
+      },
+      {
+        "team": "Napoli",
+        "distance": 2002
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Club Brugge",
+        "distance": 1685
+      },
+      {
+        "team": "Kairat",
+        "distance": 6902
+      },
+      {
+        "team": "Marseille",
+        "distance": 1318
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 1444
+      }
+    ]
+  },
+  {
+    "home_team": "Tottenham Hotspur",
+    "away_matches": [
+      {
+        "team": "Bod\u00f8/Glimt",
+        "distance": 1915
+      },
+      {
+        "team": "Eintracht Frankfurt",
+        "distance": 635
+      },
+      {
+        "team": "Monaco",
+        "distance": 1038
+      },
+      {
+        "team": "Paris Saint-Germain",
+        "distance": 349
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Borussia Dortmund",
+        "distance": 520
+      },
+      {
+        "team": "Copenhagen",
+        "distance": 947
+      },
+      {
+        "team": "Slavia Prague",
+        "distance": 1033
+      },
+      {
+        "team": "Villarreal",
+        "distance": 1297
+      }
+    ]
+  },
+  {
+    "home_team": "Union Saint-Gilloise",
+    "away_matches": [
+      {
+        "team": "Atl\u00e9tico Madrid",
+        "distance": 1308
+      },
+      {
+        "team": "Bayern Munich",
+        "distance": 599
+      },
+      {
+        "team": "Galatasaray",
+        "distance": 2175
+      },
+      {
+        "team": "PSV Eindhoven",
+        "distance": 104
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Atalanta",
+        "distance": 691
+      },
+      {
+        "team": "Inter Milan",
+        "distance": 691
+      },
+      {
+        "team": "Marseille",
+        "distance": 843
+      },
+      {
+        "team": "Newcastle United",
+        "distance": 611
+      }
+    ]
+  },
+  {
+    "home_team": "Villarreal",
+    "away_matches": [
+      {
+        "team": "Bayer Leverkusen",
+        "distance": 1351
+      },
+      {
+        "team": "Borussia Dortmund",
+        "distance": 1410
+      },
+      {
+        "team": "Pafos",
+        "distance": 2918
+      },
+      {
+        "team": "Tottenham Hotspur",
+        "distance": 1297
+      }
+    ],
+    "home_matches": [
+      {
+        "team": "Ajax",
+        "distance": 1429
+      },
+      {
+        "team": "Copenhagen",
+        "distance": 1984
+      },
+      {
+        "team": "Juventus",
+        "distance": 855
+      },
+      {
+        "team": "Manchester City",
+        "distance": 1514
+      }
+    ]
+  }
+]

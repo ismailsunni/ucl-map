@@ -910,6 +910,11 @@ function initializeTabs() {
                 } else if ((targetTab === 'matches' || targetTab === 'interactive') && !mapsInitialized) {
                     initializeMaps();
                 }
+
+                // Calculate insights for matches tab
+                if (targetTab === 'matches') {
+                    calculateTravelInsights();
+                }
                 
                 // Trigger map resize
                 if (targetTab === 'matches' && matchesMap) {
@@ -1096,7 +1101,116 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     if (activeTab && activeTab.id === 'matches-tab') {
         initializeMaps();
+        calculateTravelInsights();
     } else if (activeTab && activeTab.id === 'table-tab') {
         initializeTable();
     }
 });
+
+// Travel Insights functionality
+function calculateTravelInsights() {
+    if (!stadiumData.length || !matchData.length) return;
+
+    // Calculate all matches with distances
+    const allMatches = [];
+    const teamStats = [];
+
+    // Get all individual matches
+    matchData.forEach(teamData => {
+        const homeTeam = teamData.home_team;
+        const homeStadium = getStadiumByTeam(homeTeam);
+        if (!homeStadium) return;
+
+        teamData.away_matches.forEach(match => {
+            const awayTeam = match.team;
+            const awayStadium = getStadiumByTeam(awayTeam);
+            if (awayStadium) {
+                allMatches.push({
+                    homeTeam,
+                    awayTeam,
+                    distance: match.distance
+                });
+            }
+        });
+    });
+
+    // Calculate team statistics
+    stadiumData.forEach(stadium => {
+        const stats = getTeamTravelStats(stadium.team);
+        teamStats.push({
+            team: stadium.team,
+            totalTravel: stats.total_travel,
+            guestTravel: stats.total_guest_travel,
+            travelDifference: stats.travel_difference,
+            shortestTrip: stats.shortest_trip,
+            longestTrip: stats.longest_trip
+        });
+    });
+
+    // Find extremes for single match travel
+    const longestMatch = allMatches.reduce((max, match) =>
+        match.distance > max.distance ? match : max, allMatches[0]);
+    const shortestMatch = allMatches.reduce((min, match) =>
+        match.distance < min.distance ? match : min, allMatches[0]);
+
+    // Find extremes for total team travel
+    const longestTotalTravel = teamStats.reduce((max, team) =>
+        team.totalTravel > max.totalTravel ? team : max);
+    const shortestTotalTravel = teamStats.reduce((min, team) =>
+        team.totalTravel < min.totalTravel ? team : min);
+
+    // Find extremes for guest travel
+    const longestGuestTravel = teamStats.reduce((max, team) =>
+        team.guestTravel > max.guestTravel ? team : max);
+    const shortestGuestTravel = teamStats.reduce((min, team) =>
+        team.guestTravel < min.guestTravel ? team : min);
+
+    // Find extremes for travel difference
+    const mostAdvantaged = teamStats.reduce((max, team) =>
+        team.travelDifference < max.travelDifference ? team : max);
+    const mostDisadvantaged = teamStats.reduce((min, team) =>
+        team.travelDifference > min.travelDifference ? team : min);
+
+    // Update the UI
+    updateInsightValue('longest-match-travel',
+        `${longestMatch.distance.toLocaleString()} km`,
+        `${longestMatch.homeTeam} vs ${longestMatch.awayTeam}`);
+
+    updateInsightValue('shortest-match-travel',
+        `${shortestMatch.distance.toLocaleString()} km`,
+        `${shortestMatch.homeTeam} vs ${shortestMatch.awayTeam}`);
+
+    updateInsightValue('longest-total-travel',
+        `${longestTotalTravel.totalTravel.toLocaleString()} km`,
+        longestTotalTravel.team);
+
+    updateInsightValue('shortest-total-travel',
+        `${shortestTotalTravel.totalTravel.toLocaleString()} km`,
+        shortestTotalTravel.team);
+
+    updateInsightValue('longest-guest-travel',
+        `${longestGuestTravel.guestTravel.toLocaleString()} km`,
+        longestGuestTravel.team);
+
+    updateInsightValue('shortest-guest-travel',
+        `${shortestGuestTravel.guestTravel.toLocaleString()} km`,
+        shortestGuestTravel.team);
+
+    updateInsightValue('most-advantaged-travel',
+        `${Math.abs(mostAdvantaged.travelDifference).toLocaleString()} km less`,
+        mostAdvantaged.team);
+
+    updateInsightValue('most-disadvantaged-travel',
+        `${mostDisadvantaged.travelDifference.toLocaleString()} km more`,
+        mostDisadvantaged.team);
+}
+
+function updateInsightValue(elementId, distance, teams) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        const distanceSpan = element.querySelector('.distance');
+        const teamsSpan = element.querySelector('.teams');
+        if (distanceSpan) distanceSpan.textContent = distance;
+        if (teamsSpan) teamsSpan.textContent = teams;
+    }
+}
